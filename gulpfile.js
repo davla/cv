@@ -1,0 +1,69 @@
+/**
+ * @fileoverview Gulpfile to compile SCSS to CSS.
+ */
+
+'use strict';
+
+const path = require('path');
+
+const gulp = require('gulp');
+const rename = require('gulp-rename');
+const scss = require('gulp-sass');
+
+/**
+ * This object contains options used by tasks. For example, source and
+ * destination files, as well as configuration for plugins used in the
+ * pipeline.
+ *
+ * Keys are task names, while values are objects, whose keys and values are
+ * task-dependent. However, src and dest keys are generally expected.
+ *
+ * @summary Contains options for every task.
+ *
+ * @type Object
+ */
+const opts = {
+    scss: {
+        // Source and destination files
+        src: `${ __dirname }/scss/**/*.scss`,
+        dest: `${ __dirname }/static/css`,
+
+        // Scss compilation options
+        scss: {
+            includePaths: [
+                path.join(__dirname, 'node_modules', 'foundation-sites',
+                    'scss')
+            ]
+        },
+
+        // Options to rename files in the task pipeline
+        rename: {
+            dirname: ''
+        }
+    }
+};
+
+/**
+ * @summary Compiles SCSS files to CSS.
+ */
+gulp.task('scss', () =>
+    gulp.src(opts.scss.src)
+        .pipe(scss(opts.scss.scss).on('error', scss.logError))
+        .pipe(rename(opts.scss.rename))
+        .pipe(gulp.dest(opts.scss.dest))
+);
+
+/**
+ * @summary Compiles SCSS to CSS when started and on SCSS changes.
+ */
+gulp.task('watch', gulp.series(
+    'scss',
+    () => gulp.watch(opts.scss.src, gulp.task('scss'))
+));
+
+/**
+ * @summary Default task is aliased to watch.
+ */
+gulp.task('default', gulp.task('watch'));
+
+
