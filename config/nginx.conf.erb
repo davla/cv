@@ -30,6 +30,18 @@ http {
     server_name _;
     keepalive_timeout 5;
 
+    tcp_nopush     on;
+    tcp_nodelay    on;
+
+    location /static/ {
+#        include  /etc/nginx/mime.types;
+        alias /app/static/;
+    }
+
+    location = /static {
+        rewrite ^ /static/ permanent;
+    }
+
     location / {
       include uwsgi_params;
       more_set_headers 'X-Request-Id: $http_x_request_id';
