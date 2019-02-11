@@ -1,1 +1,1 @@
-web: bin/start-nginx uwsgi uwsgi.ini
+web: npx gulp scss && bin/start-nginx uwsgi uwsgi.ini

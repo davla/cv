@@ -29,5 +29,10 @@
     "vitae",
     "flask",
     "jinja"
-  ]
+  ],
+  "engines": {
+    "node": "11.9.0",
+    "npm": "6.5.0",
+    "npx": "6.5.0"
+  }
 }
