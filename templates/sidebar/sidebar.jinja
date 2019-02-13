@@ -1,0 +1,12 @@
+{% extends 'base.jinja' %}
+
+{% block body %}
+    <div class="page">
+        <section class="sidebar">
+            {% block sidebar %}{% endblock %}
+        </section>
+        <section class="main-content">
+            {% block main_content %}{% endblock %}
+        </section>
+    </div>
+{%  endblock %}
