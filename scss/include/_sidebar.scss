@@ -7,9 +7,10 @@
 .page {
     @extend .grid-x, .grid-padding-x;
 
+    height: 100%;
+
     .sidebar {
-        @extend .cell, .hide-for-xsmall, .show-for-medium,
-            .medium-4, .large-3, .xlarge-2;
+        @extend .cell, .show-for-medium, .medium-4, .large-3, .xlarge-2;
     }
 
     .main-content {

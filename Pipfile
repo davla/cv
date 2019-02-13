@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-uwsgi = "*"
+Flask = "*"
+uWSGI = "*"
 
 [dev-packages]
 

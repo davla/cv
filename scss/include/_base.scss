@@ -4,6 +4,12 @@
 
 @import 'lib';
 
+html, body {
+    height: 100%;
+}
+
 .content-wrapper {
     @extend .grid-container;
+
+    height: 100%;
 }
