@@ -2,7 +2,7 @@
 ///     Created by Davide on 2/13/19
 ////
 
-@import 'lib';
+@import '../include/lib';
 
 .page {
     @extend .grid-x, .grid-padding-x;

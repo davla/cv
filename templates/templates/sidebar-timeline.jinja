@@ -1,0 +1,18 @@
+{% extends 'layout/sidebar.jinja' %}
+
+{% block sidebar %}
+    <section class="header">
+
+        <img src="{{ header.picture_url }}" alt="picture" />
+
+        <span class="name">
+            {{ header.first_name }} {{ header.last_name }}
+        </span>
+
+        <p class="title">{{ header.title }}</p>
+
+        <p class="summary">
+            {{ header.summary }}
+        </p>
+    </section>
+{% endblock %}

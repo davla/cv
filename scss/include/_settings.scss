@@ -4,6 +4,8 @@
 
 @import 'settings/settings';
 
+$body-font-family: 'Rubik', sans-serif;
+
 $breakpoints: (
   xsmall: 0px,
   small: 576px,
@@ -30,6 +32,6 @@ $xy-grid-options: (
   block-grid: false,
   collapse: false,
   offset: false,
-  vertical-grid: false,
+  vertical-grid: true,
   frame-grid: false
 );

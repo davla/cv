@@ -1,0 +1,28 @@
+////
+///     Created by Davide on 2/13/19
+////
+
+@import '../include/base';
+@import '../layout/sidebar';
+
+.sidebar {
+    @extend .grid-y, .grid-padding-y;
+
+    background: $black;
+    color: $light-gray;
+
+    .header {
+        img {
+            display: block;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        .title {
+            font-style: italic;
+        }
+    }
+}
