@@ -59,6 +59,14 @@ $fa-font-path: '../webfonts';
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
+$font-size: (
+    xsmall: 0.6rem,
+    small: 0.8rem,
+    medium: 1rem,
+    large: 1.2rem,
+    xlarge: 1.5rem
+);
+
 $icons: (
     coding: $fa-var-code,
     git: $fa-var-code-branch,
@@ -69,4 +77,20 @@ $icons: (
     music: $fa-var-guitar,
     terminal: $fa-var-terminal,
     wildlife: $fa-var-hippo
+);
+
+$icon-size: (
+    xsmall: 0.8rem,
+    small: 1rem,
+    medium: 1.2rem,
+    large: 1.5rem,
+    xlarge: 1.8rem
+);
+
+$spacing: (
+    xsmall: rem-calc(2px),
+    small: rem-calc(5px),
+    medium: rem-calc(8px),
+    large: rem-calc(12px),
+    xlarge: rem-calc(15px)
 );

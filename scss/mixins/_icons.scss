@@ -1,0 +1,24 @@
+////
+///     Created by Davide on 2/16/19
+////
+
+@import '../functions/getter';
+
+@mixin icon-circle($background, $text, $size, $spacing-right) {
+    $size: get-icon-size($size);
+    $circle-size: $size + 1rem;
+
+    padding-right: get-spacing($spacing-right);
+
+    &::before {
+        border-radius: 50%;
+        height: $circle-size;
+        width: $circle-size;
+        background: $background;
+        color: $text;
+        line-height: $circle-size;
+        font-size: $size;
+        text-align: center;
+        vertical-align: middle;
+    }
+}

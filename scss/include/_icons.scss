@@ -14,6 +14,7 @@
         @extend %icon;
 
         &:before {
+            display: inline-block;
             content: fa-content($fa-icon);
         }
     }
