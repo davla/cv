@@ -15,4 +15,16 @@
             {{ header.summary }}
         </p>
     </section>
+
+    <section class="interests">
+        <ul>
+            {% for item in interests %}
+                {% set info = item.info %}
+                <li>
+                    <span class="icon-{{ info.icon }}"></span>{{ info.name }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
 {% endblock %}

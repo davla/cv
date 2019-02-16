@@ -3,7 +3,9 @@
 ////
 
 @import '../include/base';
+@import '../include/icons';
 @import '../layout/sidebar';
+@import '../mixins/icons';
 
 .sidebar {
     @extend .grid-y, .grid-padding-y;
@@ -13,16 +15,38 @@
 
     .header {
         img {
+            margin-bottom: get-spacing(medium);
             display: block;
             border-radius: 50%;
         }
 
         .name {
+            font-size: get-font-size(large);
             font-weight: bold;
         }
 
         .title {
+            margin: get-spacing(small) 0;
             font-style: italic;
+        }
+    }
+
+    .interests {
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            padding: get-spacing(small) 0;
+        }
+
+        span[class*="icon"] {
+            @include icon-circle(
+                $background: $light-gray,
+                $text: $black,
+                $size: large,
+                $spacing-right: medium);
         }
     }
 }
