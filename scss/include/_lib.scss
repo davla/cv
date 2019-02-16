@@ -5,6 +5,9 @@
 @import 'foundation';
 @import 'settings';
 
+@import '../vendors/fontawesome/fontawesome';
+@import '../vendors/fontawesome/solid';
+
 @include foundation-global-styles;
 @include foundation-visibility-classes;
 @include foundation-xy-grid-classes($xy-grid-options...);

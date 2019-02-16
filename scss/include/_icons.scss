@@ -1,0 +1,20 @@
+////
+///     Created by Davide on 2/16/19
+////
+
+@import 'lib';
+
+%icon {
+    @extend %fa-icon;
+    @extend .fas;
+}
+
+@each $name, $fa-icon in $icons {
+    .icon-#{$name} {
+        @extend %icon;
+
+        &:before {
+            content: fa-content($fa-icon);
+        }
+    }
+}

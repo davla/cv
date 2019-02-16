@@ -3,6 +3,18 @@
 ////
 
 @import 'settings/settings';
+@import 'util/unit';
+@import '../vendors/fontawesome/_variables.scss';
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+//                                Vendors                                    //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////
+// Foundation
+///////////////////////////////////////
 
 $body-font-family: 'Rubik', sans-serif;
 
@@ -13,7 +25,6 @@ $breakpoints: (
   large: 992px,
   xlarge: 1200px,
 );
-
 $breakpoint-classes: map-keys($breakpoints);
 
 $grid-column-gutter: (
@@ -34,4 +45,28 @@ $xy-grid-options: (
   offset: false,
   vertical-grid: true,
   frame-grid: false
+);
+
+///////////////////////////////////////
+// Fontawesome
+///////////////////////////////////////
+
+$fa-font-path: '../webfonts';
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+//                                Custom                                     //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+$icons: (
+    coding: $fa-var-code,
+    git: $fa-var-code-branch,
+    graduation: $fa-var-graduation-cap,
+    hardware: $fa-var-microchip,
+    keyboard: $fa-var-keyboard,
+    languages: $fa-var-language,
+    music: $fa-var-guitar,
+    terminal: $fa-var-terminal,
+    wildlife: $fa-var-hippo
 );
