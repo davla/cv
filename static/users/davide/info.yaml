@@ -1,0 +1,146 @@
+head:
+  title: Davide Laezza
+
+header:
+  picture_url: "/static/photo.jpg"
+  first_name: Davide
+  last_name: Laezza
+  title: Computer Science MSc at ITU
+  location: Copenhagen, Denmark
+  summary: >-
+    Software developer with one year experience in full-stack web development.
+    Programming languages nerd, always up to learning new languages and
+    frameworks and pushing them to their limits.
+
+contact:
+  - icon: mail
+    href: mailto:davide.laezza@gmx.com
+    text: davide.laezza@gmx.com
+  - icon: phone
+    text: +45 22 19 29 65
+  - icon: github
+    text: davla
+    href: https://github.com/davla/
+  - icon: linkedin
+    text: davide-laezza-0
+    href: https://www.linkedin.com/in/davide-laezza-0/
+
+interests:
+  - icon: coding
+    name: coding
+  - icon: wildlife
+    name: wildlife
+  - icon: music
+    name: music
+  - icon: languages
+    name: linguistics
+
+languages:
+  - name: italian
+    level: 10
+  - name: english
+    level: 8
+  - name: danish
+    level: 5
+
+work:
+  - info:
+      start: 22
+      company: 22
+      where: 22
+      role:
+      end: 22
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+  - info:
+      start: 22
+      end: 22
+      company: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+  - info:
+      start: 22
+      end: 22
+      company: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+
+volunteer:
+  - info:
+      start: 22
+      end: 22
+      company: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+  - info:
+      start: 22
+      end: 22
+      company: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+  - info:
+      start: 22
+      end: 22
+      company: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+
+skills:
+  - name: 3
+  - name: 3
+  - name: 3
+
+
+education:
+  - info:
+      start: 22
+      end: 22
+      institution: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+  - info:
+      start: 22
+      end: 22
+      company: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
+  - info:
+      start: 22
+      end: 22
+      company: 22
+      where: 22
+      role:
+    text: 22
+    bullets:
+      - aaa
+      - bbb
