@@ -4,14 +4,9 @@
 
 @import 'vendors';
 
-%icon {
-    @extend %fa-icon;
-    @extend .fas;
-}
-
-@each $name, $fa-icon in $icons {
+@each $name, $fa-icon, $fa-class in $icons {
     .icon-#{$name} {
-        @extend %icon;
+        @extend %fa-icon, .#{$fa-class};
 
         &:before {
             display: inline-block;

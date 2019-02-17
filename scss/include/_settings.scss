@@ -68,15 +68,19 @@ $font-size: (
 );
 
 $icons: (
-    coding: $fa-var-code,
-    git: $fa-var-code-branch,
-    graduation: $fa-var-graduation-cap,
-    hardware: $fa-var-microchip,
-    keyboard: $fa-var-keyboard,
-    languages: $fa-var-language,
-    music: $fa-var-guitar,
-    terminal: $fa-var-terminal,
-    wildlife: $fa-var-hippo
+    coding $fa-var-code fas,
+    git $fa-var-code-branch fas,
+    github $fa-var-github fab,
+    graduation $fa-var-graduation-cap fas,
+    hardware $fa-var-microchip fas,
+    keyboard $fa-var-keyboard fas,
+    languages $fa-var-language fas,
+    linkedin $fa-var-linkedin-in fab,
+    mail $fa-var-envelope fas,
+    music $fa-var-guitar fas,
+    phone $fa-var-phone fas,
+    terminal $fa-var-terminal fas,
+    wildlife $fa-var-hippo fas
 );
 
 $icon-size: (
