@@ -44,7 +44,7 @@ const opts = {
         },
 
         // SCSS watcher sources
-        watch: './scss/**/*.css'
+        watch: './scss'
     }
 };
 
