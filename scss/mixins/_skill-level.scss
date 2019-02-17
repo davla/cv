@@ -4,12 +4,12 @@
 
 @import '../functions/getter';
 @import '../include/lib';
+@import 'lib';
 
 @mixin skill-bullets($spacing, $size, $color) {
     @extend %circle;
+    @include square($size);
 
     margin-right: get-spacing($spacing);
-    height: $size;
-    width: $size;
     background: $color;
 }

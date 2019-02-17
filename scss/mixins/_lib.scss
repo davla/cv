@@ -7,3 +7,8 @@
         @content
     }
 }
+
+@mixin square($size) {
+    height: $size;
+    width: $size;
+}

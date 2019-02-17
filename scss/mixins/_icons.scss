@@ -4,6 +4,7 @@
 
 @import '../functions/getter';
 @import '../include/lib';
+@import 'lib';
 
 @mixin icon-circle($background, $text, $size, $spacing-right) {
     $size: get-icon-size($size);
@@ -13,9 +14,8 @@
 
     &::before {
         @extend %circle;
+        @include square($circle-size);
 
-        height: $circle-size;
-        width: $circle-size;
         background: $background;
         color: $text;
         line-height: $circle-size;
