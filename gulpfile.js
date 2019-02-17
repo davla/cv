@@ -25,7 +25,7 @@ const scss = require('gulp-sass');
 const opts = {
     scss: {
         // Source and destination files
-        src: `${ __dirname }/scss/**/*.scss`,
+        src: ['./scss/**/*.scss', '!./scss/vendors/**'],
         dest: `${ __dirname }/static/css`,
 
         // Scss compilation options
