@@ -3,10 +3,12 @@
 ////
 
 @import '../functions/getter';
+@import '../include/lib';
 
 @mixin skill-bullets($spacing, $size, $color) {
+    @extend %circle;
+
     margin-right: get-spacing($spacing);
-    border-radius: 50%;
     height: $size;
     width: $size;
     background: $color;

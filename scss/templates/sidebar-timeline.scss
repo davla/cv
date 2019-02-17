@@ -11,28 +11,32 @@
 @import '../mixins/lib';
 @import '../mixins/skill-level';
 
+$background: $black;
+$color: $light-gray;
+
 .sidebar-skill-level {
     @include skill-bullets(
         $spacing: small,
         $size: rem-calc(10px),
-        $color: $light-gray);
+        $color: $color);
 }
 
 .sidebar {
     @extend .grid-y, .grid-padding-y;
 
-    background: $black;
-    color: $light-gray;
+    background: $background;
+    color: $color;
 
     @include a() {
-        color: $light-gray;
+        color: $color;
     }
 
     .header {
         img {
-            margin-bottom: get-spacing(medium);
+            @extend %circle;
+
             display: block;
-            border-radius: 50%;
+            margin-bottom: get-spacing(medium);
         }
 
         .name {
@@ -63,8 +67,8 @@
 
         span[class*="icon"] {
             @include icon-circle(
-                $background: $light-gray,
-                $text: $black,
+                $background: $color,
+                $text: $background,
                 $size: large,
                 $spacing-right: medium);
         }
