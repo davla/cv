@@ -40,13 +40,16 @@ $color: $light-gray;
         img {
             @extend %circle;
 
+            height: auto;
+            width: 70%;
             display: block;
-            margin-bottom: get-spacing(medium);
+            margin: 0 auto get-spacing(medium) auto;
         }
 
         .name {
             font-size: get-font-size(large);
             font-weight: bold;
+            text-align: center;
         }
 
         .title {
@@ -59,6 +62,15 @@ $color: $light-gray;
         ul {
             @extend %list-unstyled;
         }
+
+        li {
+            margin: get-spacing(xsmall) 0;
+        }
+
+        span[class*="icon"] {
+            padding-right: get-spacing(medium);
+            font-size: get-icon-size(medium);
+        }
     }
 
     .interests {
@@ -67,7 +79,7 @@ $color: $light-gray;
         }
 
         li {
-            padding: get-spacing(small) 0;
+            margin: get-spacing(small) 0;
         }
 
         span[class*="icon"] {
@@ -83,11 +95,11 @@ $color: $light-gray;
         @extend .grid-x, .grid-padding-x;
 
         .lang-name {
-            @extend .cell, .xsmall-4;
+            @extend .cell, .xsmall-3;
         }
 
         .skill-level {
-            @extend .cell, .xsmall-8;
+            @extend .cell, .xsmall-9;
         }
     }
 }
