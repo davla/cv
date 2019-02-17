@@ -17,6 +17,8 @@ const scss = require('gulp-sass');
  *
  * Keys are task names, while values are objects, whose keys and values are
  * task-dependent. However, src and dest keys are generally expected.
+ * Furthermore, a "watch" key can be defined, holding the source files for the
+ * watcher version of the task.
  *
  * @summary Contains options for every task.
  *
@@ -25,7 +27,7 @@ const scss = require('gulp-sass');
 const opts = {
     scss: {
         // Source and destination files
-        src: ['./scss/**/*.scss', '!./scss/vendors/**'],
+        src: './scss/templates/*.scss',
         dest: `${ __dirname }/static/css`,
 
         // Scss compilation options
@@ -39,7 +41,10 @@ const opts = {
         // Options to rename files in the task pipeline
         rename: {
             dirname: ''
-        }
+        },
+
+        // SCSS watcher sources
+        watch: './scss/**/*.css'
     }
 };
 
@@ -56,14 +61,14 @@ gulp.task('scss', () =>
 /**
  * @summary Compiles SCSS to CSS when started and on SCSS changes.
  */
-gulp.task('watch', gulp.series(
-    'scss',
-    () => gulp.watch(opts.scss.src, gulp.task('scss'))
-));
+gulp.task('watch-scss', gulp.parallel(
+        'scss',
+        () => gulp.watch(opts.scss.watch, gulp.task('scss')))
+);
 
 /**
  * @summary Default task is aliased to watch.
  */
-gulp.task('default', gulp.task('watch'));
+gulp.task('default', gulp.task('watch-scss'));
 
 
