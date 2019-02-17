@@ -2,14 +2,14 @@
 ///     Created by Davide on 2/13/19
 ////
 
-@import 'lib';
+@import 'vendors';
 @import '../functions/getter';
 
 html, body {
     height: 100%;
 }
 
-p {
+p, ul {
     margin: 0;
 }
 

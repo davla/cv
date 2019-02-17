@@ -2,10 +2,20 @@
 ///     Created by Davide on 2/13/19
 ////
 
+@import '../components/skill-level';
 @import '../include/base';
 @import '../include/icons';
+@import '../include/lib';
 @import '../layout/sidebar';
 @import '../mixins/icons';
+@import '../mixins/skill-level';
+
+.sidebar-skill-level {
+    @include skill-bullets(
+        $spacing: small,
+        $size: rem-calc(10px),
+        $color: $light-gray);
+}
 
 .sidebar {
     @extend .grid-y, .grid-padding-y;
@@ -33,8 +43,7 @@
 
     .interests {
         ul {
-            padding: 0;
-            list-style-type: none;
+            @extend %list-unstyled;
         }
 
         li {
@@ -47,6 +56,18 @@
                 $text: $black,
                 $size: large,
                 $spacing-right: medium);
+        }
+    }
+
+    .languages {
+        @extend .grid-x, .grid-padding-x;
+
+        .lang-name {
+            @extend .cell, .xsmall-4;
+        }
+
+        .skill-level {
+            @extend .cell, .xsmall-8;
         }
     }
 }

@@ -1,5 +1,7 @@
 {% extends 'layout/sidebar.jinja' %}
 
+{% from 'macros/skill-level.jinja' import skill_level %}
+
 {% block sidebar %}
     <section class="header">
 
@@ -21,10 +23,19 @@
             {% for item in interests %}
                 {% set info = item.info %}
                 <li>
-                    <span class="icon-{{ info.icon }}"></span>{{ info.name }}
+                    <span class="icon-{{ info.icon }}"></span>
+                    {{ info.name | capitalize }}
                 </li>
             {% endfor %}
         </ul>
+    </section>
+
+    <section class="languages">
+        {% for item in languages %}
+            {% set info = item.info %}
+            <div class="lang-name">{{ info.name | capitalize }}</div>
+            {{ skill_level(info.level, 'sidebar-skill-level') }}
+        {% endfor %}
     </section>
 
 {% endblock %}
