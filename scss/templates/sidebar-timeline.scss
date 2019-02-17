@@ -24,11 +24,16 @@ $color: $light-gray;
 .sidebar {
     @extend .grid-y, .grid-padding-y;
 
+    justify-content: space-between;
     background: $background;
     color: $color;
 
     @include a() {
         color: $color;
+    }
+
+    > * {
+        @extend .cell;
     }
 
     .header {
