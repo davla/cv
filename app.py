@@ -9,6 +9,10 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+app.jinja_options = dict(app.jinja_options,
+                         lstrip_blocks=True,
+                         trim_blocks=True)
+
 
 def cv_endpoint(jinja_path, template_name):
     with open('info.yaml') as info_file:
