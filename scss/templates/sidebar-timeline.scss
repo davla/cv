@@ -8,6 +8,7 @@
 @import '../include/lib';
 @import '../layout/sidebar';
 @import '../mixins/icons';
+@import '../mixins/lib';
 @import '../mixins/skill-level';
 
 .sidebar-skill-level {
@@ -22,6 +23,10 @@
 
     background: $black;
     color: $light-gray;
+
+    @include a() {
+        color: $light-gray;
+    }
 
     .header {
         img {
@@ -38,6 +43,12 @@
         .title {
             margin: get-spacing(small) 0;
             font-style: italic;
+        }
+    }
+
+    .contact {
+        ul {
+            @extend %list-unstyled;
         }
     }
 

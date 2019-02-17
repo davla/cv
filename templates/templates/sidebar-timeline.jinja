@@ -18,6 +18,21 @@
         </p>
     </section>
 
+    <section class="contact">
+        <ul>
+            {% for item in contact %}
+                <li>
+                    <span class="icon-{{ item.icon }}"></span>
+                    {% if item.href -%}
+                        <a href="{{ item.href }}">{{ item.text }}</a>
+                    {%- else -%}
+                        {{ item.text }}
+                    {%- endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
     <section class="interests">
         <ul>
             {% for item in interests %}
