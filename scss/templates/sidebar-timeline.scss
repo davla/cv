@@ -37,24 +37,29 @@ $color: $light-gray;
     }
 
     .header {
+        text-align: center;
+
         img {
             @extend %circle;
 
+            display: block;
+            margin: auto;
             height: auto;
             width: 70%;
-            display: block;
-            margin: 0 auto get-spacing(medium) auto;
         }
 
         .name {
             font-size: get-font-size(large);
             font-weight: bold;
-            text-align: center;
         }
 
-        .title {
-            margin: get-spacing(small) 0;
+        .location {
             font-style: italic;
+        }
+
+        .summary {
+            margin-top: get-spacing(medium);
+            text-align: left;
         }
     }
 
