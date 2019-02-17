@@ -2,17 +2,12 @@
 ///     Created by Davide on 2/17/19
 ////
 
-@import 'util/unit';
-
 @import '../include/lib';
-@import '../include/settings';
-@import '../functions/getter';
 
 .skill-level {
     @extend %list-unstyled;
 
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
+    li {
+        display: inline-block;
+    }
 }

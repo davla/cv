@@ -1,7 +1,7 @@
 {% macro skill_level(level, level_style='skill-bullets') %}
     <ul class="skill-level">
-        {% for n in range(level) %}
+        {% for n in range(level) -%}
             <li class="{{ level_style }}"></li>
-        {% endfor %}
+        {%- endfor %}
     </ul>
 {% endmacro %}
