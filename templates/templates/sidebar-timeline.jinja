@@ -1,25 +1,24 @@
 {% extends 'layout/sidebar.jinja' %}
 
 {% from 'macros/skill-level.jinja' import skill_level %}
+{% import 'macros/timeline.jinja' as timeline %}
 
 {% block sidebar %}
-    <section class="header">
+    <article class="header">
 
         <img src="{{ header.picture_url }}" alt="picture" />
 
-        <div class="name">
+        <p class="name">
             {{ header.first_name }} {{ header.last_name }}
-        </div>
-
-        <div class="title">{{ header.title }}</div>
-        <div class="location">{{ header.location }}</div>
-
-        <p class="summary">
-            {{ header.summary }}
         </p>
-    </section>
 
-    <section class="contact">
+        <p class="title">{{ header.title }}</p>
+        <p class="location">{{ header.location }}</p>
+
+        <p class="summary">{{ header.summary }}</p>
+    </article>
+
+    <article class="contact">
         <ul>
             {% for item in contact %}
                 <li>
@@ -32,9 +31,9 @@
                 </li>
             {% endfor %}
         </ul>
-    </section>
+    </article>
 
-    <section class="interests">
+    <article class="interests">
         <ul>
             {% for item in interests %}
                 <li>
@@ -43,13 +42,14 @@
                 </li>
             {% endfor %}
         </ul>
-    </section>
+    </article>
 
-    <section class="languages">
+    <article class="languages">
         {% for item in languages %}
             <div class="lang-name">{{ item.name | capitalize }}</div>
             {{ skill_level(item.level, 'sidebar-skill-level') }}
         {% endfor %}
-    </section>
+    </article>
+{% endblock %}
 
 {% endblock %}
