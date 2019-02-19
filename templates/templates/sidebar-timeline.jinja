@@ -52,4 +52,11 @@
     </article>
 {% endblock %}
 
+{% block main_content %}
+    <article class="work-experience">
+        <h2>Work experience</h2>
+        {% call(item) timeline.timeline(work) %}
+            {{ item.description }}
+        {% endcall %}
+    </article>
 {% endblock %}

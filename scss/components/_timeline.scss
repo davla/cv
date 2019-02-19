@@ -1,0 +1,12 @@
+////
+///     Created by Davide on 2/19/19
+////
+
+@import '../include/vendors';
+@import '../functions/getter';
+@import '../include/lib';
+
+.timeline {
+    @extend %list-unstyled;
+
+}

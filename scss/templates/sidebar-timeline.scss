@@ -3,6 +3,7 @@
 ////
 
 @import '../components/skill-level';
+@import '../components/timeline';
 @import '../include/base';
 @import '../include/icons';
 @import '../include/lib';
@@ -10,6 +11,7 @@
 @import '../mixins/icons';
 @import '../mixins/lib';
 @import '../mixins/skill-level';
+@import '../mixins/timeline';
 
 $background: $black;
 $color: $light-gray;
@@ -106,5 +108,15 @@ $color: $light-gray;
         .skill-level {
             @extend .cell, .xsmall-9;
         }
+    }
+}
+
+.main-content {
+    .timeline-item {
+        @include timeline-item(
+            $color: $black,
+            $dot-size: rem-calc(30px),
+            $spacing: get-spacing(xlarge)
+        );
     }
 }

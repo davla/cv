@@ -1,0 +1,24 @@
+{% macro timeline_item(item) %}
+    <li class="timeline-item">
+        <header>
+            <h3 class="timeline-heading">
+                {{ item.role }} <small>at {{ item.company.name }}</small>
+            </h3>
+            <p class="timeline-period">{{ item.from }} - {{ item.to }}</p>
+            <p class="timeline-location">{{ item.company.location }}</p>
+        </header>
+
+        {{ caller(item) }}
+    </li>
+{% endmacro %}
+
+{% macro timeline(items, class='timeline') %}
+    <ul class="{{ class }}">
+        {% for item in items %}
+            {% set body = caller %}
+            {% call(item) timeline_item(item) %}
+                {{ body(item) }}
+            {% endcall %}
+        {% endfor %}
+    </ul>
+{% endmacro %}
