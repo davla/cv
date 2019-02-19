@@ -35,6 +35,15 @@ $grid-column-gutter: (
   xlarge: 40px
 );
 $grid-margin-gutters: $grid-column-gutter;
+$grid-padding-gutters: $grid-column-gutter;
+
+$header-font-family: $body-font-family;
+$header-margin-bottom: 0;
+$header-small-font-color: $dark-gray;
+
+$list-margin-bottom: 0;
+
+$paragraph-margin-bottom: 0;
 
 $xy-grid-options: (
   base-grid: true,

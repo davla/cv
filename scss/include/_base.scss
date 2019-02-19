@@ -15,10 +15,6 @@ html, body {
     text-decoration: underline;
 }
 
-p, ul {
-    margin: 0;
-}
-
 .content-wrapper {
     @extend .grid-container;
 
