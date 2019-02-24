@@ -27,6 +27,10 @@ $breakpoints: (
 );
 $breakpoint-classes: map-keys($breakpoints);
 
+$defnlist-margin-bottom: 0;
+$defnlist-term-weight: bold;
+$defnlist-term-margin-bottom: 0;
+
 $grid-column-gutter: (
   xsmall: 20px,
   small: 25px,
@@ -38,11 +42,18 @@ $grid-margin-gutters: $grid-column-gutter;
 $grid-padding-gutters: $grid-column-gutter;
 
 $header-font-family: $body-font-family;
+$header-lineheight: 1;
 $header-margin-bottom: 0;
 $header-small-font-color: $dark-gray;
+$header-styles: (
+    xsmall: map-get($header-styles, small),
+    medium: map-get($header-styles, medium),
+);
 
+$list-lineheight: 1.3;
 $list-margin-bottom: 0;
 
+$paragraph-lineheight: $list-lineheight;
 $paragraph-margin-bottom: 0;
 
 $xy-grid-options: (

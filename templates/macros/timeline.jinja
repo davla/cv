@@ -1,3 +1,55 @@
+{% macro work_experience(item) %}
+    {% if item.description %}
+        <p class="timeline-description">{{ item.description }}</p>
+    {% else %}
+        <dl class="timeline-info">
+            {% if item.company['core-business'] or item.company.size %}
+                <dt>Company</dt>
+                <dd>
+                    <dl>
+                        {% if item.company['core-business'] %}
+                            <dt>Core business:</dt>
+                            <dd>{{ item.company['core-business'] }}</dd>
+                        {% endif %}
+
+                        {% if item.company.size %}
+                            <dt>Size:</dt>
+                            <dd>{{ item.company.size }}</dd>
+                        {% endif %}
+                    </dl>
+                </dd>
+            {% endif %}
+
+            {% if item.tasks %}
+                <dt>Tasks</dt>
+                <dd>
+                    <ul>
+                        {% for task in item.tasks %}
+                            <li>{{ task }}</li>
+                        {% endfor %}
+                    </ul>
+                </dd>
+            {% endif %}
+
+            {% if item.workflow %}
+                <dt>Workflow and communication</dt>
+                <dd>{{ item.workflow }}</dd>
+            {% endif %}
+
+            {% if item.technologies %}
+                <dt>Technologies</dt>
+                <dd>
+                    <ul class="inline">
+                        {% for bullet in item.technologies -%}
+                            <li>{{ bullet }}</li>
+                        {%- endfor %}
+                    </ul>
+                </dd>
+            {% endif %}
+        </dl>
+    {% endif %}
+{% endmacro %}
+
 {% macro timeline_item(item) %}
     <li class="timeline-item">
         <header>

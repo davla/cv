@@ -10,3 +10,37 @@
     @extend %list-unstyled;
 
 }
+
+.timeline-item {
+    .timeline-period {
+        margin-top: get-spacing(xsmall);
+        font-size: get-font-size(large);
+    }
+}
+
+.timeline-info {
+    margin-top: get-spacing(large);
+
+    > dt {
+        font-size: get-font-size(large);
+        font-weight: normal;
+    }
+
+    > dd {
+        margin-left: get-spacing(large);
+    }
+
+    > dd + dt {
+        margin-top: get-spacing(small);
+    }
+
+    dl {
+        dt, dd {
+            display: inline-block;
+        }
+
+        dd + dt {
+            margin-left: get-spacing(xlarge);
+        }
+    }
+}
