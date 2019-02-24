@@ -10,3 +10,35 @@
     @extend %list-unstyled;
 
 }
+
+.timeline-item {
+    .timeline-period {
+        margin-top: get-spacing(xsmall);
+        font-size: get-font-size(large);
+    }
+}
+
+.timeline-info {
+    @extend %list-unstyled;
+    @extend .grid-x, .grid-padding-x, .xsmall-up-1, .medium-up-2;
+
+    > li {
+        @extend .cell;
+
+        @include xy-gutters($gutter-type: padding, $gutter-position: top);
+
+        h4 {
+            font-size: get-font-size(xlarge);
+        }
+
+        dt {
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+        dd {
+            margin-bottom: get-spacing(small);
+            text-indent: get-spacing(xlarge);
+        }
+    }
+}

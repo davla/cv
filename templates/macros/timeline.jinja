@@ -1,3 +1,62 @@
+{% macro work_experience(item) %}
+    {% if item.description %}
+        <p class="timeline-description">{{ item.description }}</p>
+    {% else %}
+        <ul class="timeline-info">
+            <li>
+                <h4>Company</h4>
+                <dl>
+                    <dt>Core business</dt>
+                    <dd>{{ item.company['core-business'] }}</dd>
+
+                    <dt>Size</dt>
+                    <dd>{{ item.company.size }}</dd>
+                </dl>
+            </li>
+
+            {% if item.workflow %}
+                <li>
+                    <h4>Workflow and communication</h4>
+                    <ul>
+                        {% for bullet in item.workflow %}
+                            <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+
+            {% if item.technologies %}
+                <li>
+                    <h4>Technologies</h4>
+                    <ul>
+                        {% for bullet in item.technologies %}
+                            <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+
+            {% if item.tasks %}
+                <li>
+                    <h4>Tasks</h4>
+                    <ul>
+                        {% for task in item.tasks %}
+                            <li>
+                                <p>{{ task.summary }}</p>
+                                <ul>
+                                    {% for bullet in task.bullets %}
+                                        <li>{{ bullet }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
 {% macro timeline_item(item) %}
     <li class="timeline-item">
         <header>

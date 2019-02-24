@@ -118,5 +118,25 @@ $color: $light-gray;
             $dot-size: rem-calc(30px),
             $spacing: get-spacing(xlarge)
         );
+        @include xy-gutters(
+            $gutter-type: padding,
+            $gutter-position: bottom,
+            $gutters: (
+                xsmall: map-get($grid-column-gutter, xsmall) * 1.5,
+                small: map-get($grid-column-gutter, small) * 1.5,
+                medium: map-get($grid-column-gutter, medium) * 1.5,
+                large: map-get($grid-column-gutter, large) * 1.5,
+                xlarge: map-get($grid-column-gutter, xlarge) * 1.5
+            )
+        );
+    }
+
+    .work-experience {
+        @include xy-gutters($gutter-type: padding, $gutter-position: top);
+
+        h2 {
+            margin-bottom: get-spacing(xlarge);
+            line-height: 0.8;
+        }
     }
 }

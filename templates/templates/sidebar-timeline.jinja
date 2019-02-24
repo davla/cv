@@ -56,7 +56,7 @@
     <article class="work-experience">
         <h2>Work experience</h2>
         {% call(item) timeline.timeline(work) %}
-            {{ item.description }}
+            {{ timeline.work_experience(item) }}
         {% endcall %}
     </article>
 {% endblock %}
