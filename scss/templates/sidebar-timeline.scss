@@ -51,6 +51,7 @@ $color: $light-gray;
         }
 
         .name {
+            margin-top: get-spacing(small);
             font-size: get-font-size(large);
             font-weight: bold;
         }
