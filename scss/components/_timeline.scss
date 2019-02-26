@@ -8,17 +8,18 @@
 
 .timeline {
     @extend %list-unstyled;
-
 }
 
-.timeline-item {
-    .timeline-period {
-        margin-top: get-spacing(xsmall);
-        font-size: get-font-size(large);
-    }
+.timeline-period {
+    margin-top: get-spacing(xsmall);
+    font-size: get-font-size(large);
+}
 
-    .timeline-description {
-        margin-top: get-spacing(large);
+.timeline-description {
+    margin-top: get-spacing(large);
+
+    p + p {
+        margin-top: get-spacing(medium);
     }
 }
 

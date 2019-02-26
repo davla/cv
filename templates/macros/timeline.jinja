@@ -1,6 +1,6 @@
 {% macro work_experience(item) %}
     {% if item.description %}
-        <p class="timeline-description">{{ item.description }}</p>
+        <div class="timeline-description">{{ item.description | nl2br }}</div>
     {% else %}
         <dl class="timeline-info">
             {% if item.company['core-business'] or item.company.size %}

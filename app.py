@@ -7,11 +7,14 @@ from os import listdir, path
 import yaml
 from flask import Flask, render_template
 
+from lib.filters import add_filters
+
 app = Flask(__name__)
 
 app.jinja_options = dict(app.jinja_options,
                          lstrip_blocks=True,
                          trim_blocks=True)
+add_filters(app)
 
 
 def cv_endpoint(jinja_path, template_name):
