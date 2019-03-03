@@ -2,6 +2,8 @@
 ///     Created by Davide on 2/13/19
 ////
 
+@import 'sassdash';
+
 @import '../components/skill-level';
 @import '../components/timeline';
 @import '../include/base';
@@ -13,8 +15,30 @@
 @import '../mixins/skill-level';
 @import '../mixins/timeline';
 
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+//                               Variables                                   //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
 $background: $black;
 $color: $light-gray;
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+//                               Functions                                   //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+@function main-section-gutter($gutter, $_, $__) {
+    @return $gutter * 2;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+//                                Styles                                     //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
 
 .sidebar-skill-level {
     @include skill-bullets(
@@ -113,31 +137,29 @@ $color: $light-gray;
 }
 
 .main-content {
+    .main-section {
+        @include xy-gutters($gutter-type: margin, $gutter-position: top);
+
+        h2 {
+            margin-bottom: get-spacing(medium);
+        }
+
+        & + .main-section {
+            @include xy-gutters(
+                $gutter-type: margin,
+                $gutter-position: top,
+                $gutters: _map-values($grid-column-gutters,
+                    main-section-gutter)
+            );
+        }
+    }
+
     .timeline-item {
         @include timeline-item(
             $color: $black,
             $dot-size: rem-calc(30px),
             $spacing: get-spacing(xlarge)
         );
-        @include xy-gutters(
-            $gutter-type: padding,
-            $gutter-position: bottom,
-            $gutters: (
-                xsmall: map-get($grid-column-gutter, xsmall) * 1.5,
-                small: map-get($grid-column-gutter, small) * 1.5,
-                medium: map-get($grid-column-gutter, medium) * 1.5,
-                large: map-get($grid-column-gutter, large) * 1.5,
-                xlarge: map-get($grid-column-gutter, xlarge) * 1.5
-            )
-        );
-    }
-
-    .work-experience {
-        @include xy-gutters($gutter-type: padding, $gutter-position: top);
-
-        h2 {
-            margin-bottom: get-spacing(xlarge);
-            line-height: 0.8;
-        }
+        @include xy-gutters($gutter-type: padding, $gutter-position: bottom);
     }
 }

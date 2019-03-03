@@ -6,6 +6,29 @@
     </header>
 {% endmacro %}
 
+{% macro education_body(item) %}
+    {% if item.description %}
+        <div class="timeline-description">{{ item.description | nl2br }}</div>
+    {% else %}
+        <dl class="timeline-info">
+            {% if item.thesis %}
+                <dt>Thesis</dt>
+                <dd>{{ item.thesis }}</dd>
+            {% endif %}
+
+            {% if item.content %}
+                <dt>Content</dt>
+                <dd>{{ item.content }}</dd>
+            {% endif %}
+
+            {% if item.projects %}
+                <dt>Projects</dt>
+                <dd>{{ item.projects }}</dd>
+            {% endif %}
+        </dl>
+    {% endif %}
+{% endmacro %}
+
 {% macro work_body(item) %}
     {% if item.description %}
         <div class="timeline-description">{{ item.description | nl2br }}</div>
@@ -56,6 +79,15 @@
             {% endif %}
         </dl>
     {% endif %}
+{% endmacro %}
+
+{% macro education_item(item) %}
+    {% set heading %}
+        {{ item.degree }} in {{ item.program }}
+        <small>at {{ item.institution.name }}</small>
+    {% endset %}
+    {{ item_heading(item, heading) }}
+    {{ education_body(item) }}
 {% endmacro %}
 
 {% macro work_item(item) %}

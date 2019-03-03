@@ -42,6 +42,6 @@
     }
 
     &:last-of-type::after {
-        bottom: -$dot-size / 8;
+        bottom: 0;
     }
 }
