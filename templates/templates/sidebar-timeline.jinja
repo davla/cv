@@ -54,6 +54,11 @@
 
 {% block main_content %}
     <article class="main-section">
+        <h2>Profile</h2>
+        <p>{{ profile | nl2br }}</p>
+    </article>
+
+    <article class="main-section">
         <h2>Work experience</h2>
         {% call(item) timeline.timeline(work) %}
             {{ timeline.work_item(item) }}
