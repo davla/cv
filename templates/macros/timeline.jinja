@@ -1,4 +1,12 @@
-{% macro work_experience(item) %}
+{% macro item_heading(item, heading) %}
+    <header>
+        <h3 class="timeline-heading">{{ heading }}</h3>
+        <p class="timeline-period">{{ item.from }} - {{ item.to }}</p>
+        <p class="timeline-location">{{ item.location }}</p>
+    </header>
+{% endmacro %}
+
+{% macro work_body(item) %}
     {% if item.description %}
         <div class="timeline-description">{{ item.description | nl2br }}</div>
     {% else %}
@@ -50,27 +58,20 @@
     {% endif %}
 {% endmacro %}
 
-{% macro timeline_item(item) %}
-    <li class="timeline-item">
-        <header>
-            <h3 class="timeline-heading">
-                {{ item.role }} <small>at {{ item.company.name }}</small>
-            </h3>
-            <p class="timeline-period">{{ item.from }} - {{ item.to }}</p>
-            <p class="timeline-location">{{ item.company.location }}</p>
-        </header>
-
-        {{ caller(item) }}
-    </li>
+{% macro work_item(item) %}
+    {% set heading %}
+        {{ item.role }} <small>at {{ item.company.name }}</small>
+    {% endset %}
+    {{ item_heading(item, heading) }}
+    {{ work_body(item) }}
 {% endmacro %}
 
 {% macro timeline(items, class='timeline') %}
     <ul class="{{ class }}">
         {% for item in items %}
-            {% set body = caller %}
-            {% call(item) timeline_item(item) %}
-                {{ body(item) }}
-            {% endcall %}
+            <li class="timeline-item">
+                {{ caller(item) }}
+            </li>
         {% endfor %}
     </ul>
 {% endmacro %}
