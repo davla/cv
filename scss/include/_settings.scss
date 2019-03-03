@@ -3,9 +3,9 @@
 ////
 
 @import 'sassdash';
-@import 'settings/settings';
 @import 'util/unit';
-@import '../vendors/fontawesome/_variables.scss';
+@import '../vendors/foundation/settings';
+@import '../vendors/fontawesome/variables';
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
@@ -15,7 +15,7 @@
 
 @function reduce-heading-size($heading-style, $_, $__) {
     $size: map-get($heading-style, 'font-size') * 0.79;
-    @return map-merge($heading-style, ('font-size': $size))
+    @return map-merge($heading-style, ('font-size': $size));
 }
 
 @function make-heading-size($breakpoint) {
