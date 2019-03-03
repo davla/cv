@@ -7,6 +7,7 @@
 const path = require('path');
 
 const gulp = require('gulp');
+const importOnce = require('node-sass-import-once');
 const rename = require('gulp-rename');
 const scss = require('gulp-sass');
 
@@ -32,6 +33,13 @@ const opts = {
 
         // Scss compilation options
         scss: {
+            importer: importOnce,
+            importOnce: {
+                index: true,
+                css: false,
+                bower: false
+            },
+
             includePaths: [
                 ['foundation-sites', 'scss'],
                 ['sassdash', 'scss']
