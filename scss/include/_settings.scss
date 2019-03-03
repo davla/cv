@@ -2,9 +2,26 @@
 ///     Created by Davide on 2/13/19
 ////
 
+@import 'sassdash';
 @import 'settings/settings';
 @import 'util/unit';
 @import '../vendors/fontawesome/_variables.scss';
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+//                               Functions                                   //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+@function reduce-heading-size($heading-style, $_, $__) {
+    $size: map-get($heading-style, 'font-size') * 0.79;
+    @return map-merge($heading-style, ('font-size': $size))
+}
+
+@function make-heading-size($breakpoint) {
+    $breakpoint-styles: map-get($header-styles, $breakpoint);
+    @return _map_values($breakpoint-styles, reduce-heading-size);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
@@ -31,15 +48,15 @@ $defnlist-margin-bottom: 0;
 $defnlist-term-weight: bold;
 $defnlist-term-margin-bottom: 0;
 
-$grid-column-gutter: (
+$grid-column-gutters: (
   xsmall: 20px,
   small: 25px,
   medium: 30px,
   large: 35px,
   xlarge: 40px
 );
-$grid-margin-gutters: $grid-column-gutter;
-$grid-padding-gutters: $grid-column-gutter;
+$grid-margin-gutters: $grid-column-gutters;
+$grid-padding-gutters: $grid-column-gutters;
 
 $header-font-family: $body-font-family;
 $header-lineheight: 1;
@@ -47,7 +64,7 @@ $header-margin-bottom: 0;
 $header-small-font-color: $dark-gray;
 $header-styles: (
     xsmall: map-get($header-styles, small),
-    medium: map-get($header-styles, medium),
+    medium: make-heading-size(medium)
 );
 
 $list-lineheight: 1.3;
