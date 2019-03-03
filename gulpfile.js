@@ -33,9 +33,9 @@ const opts = {
         // Scss compilation options
         scss: {
             includePaths: [
-                path.join(__dirname, 'node_modules', 'foundation-sites',
-                    'scss')
-            ]
+                ['foundation-sites', 'scss'],
+                ['sassdash', 'scss']
+            ].map(libPath => path.join(__dirname, 'node_modules', ...libPath))
         },
 
         // Options to rename files in the task pipeline
