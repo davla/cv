@@ -2,9 +2,50 @@
 ///     Created by Davide on 2/19/19
 ////
 
-@import '../include/vendors';
+@import 'util/unit';
+
 @import '../functions/getter';
 @import '../include/lib';
+@import '../mixins/lib';
+
+@mixin timeline-item($color, $spacing, $dot-size,
+    $bar-width: $dot-size / 2.5) {
+    position: relative;
+    padding-top: 0;
+    padding-left: $dot-size + $spacing;
+
+    &::before {
+        @include square($dot-size);
+
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        border-radius: 50%;
+        background: $color;
+
+        content: '';
+    }
+
+    &::after {
+        display: inline-block;
+        position: absolute;
+        top: $dot-size / 2;
+        left: ($dot-size - $bar-width) / 2;
+        bottom: -$dot-size / 2;
+        border-radius: $bar-width / 2;
+        width: $bar-width;
+        background: $color;
+
+        content: '';
+    }
+
+    &:last-of-type::after {
+        bottom: 0;
+    }
+}
+
 
 .timeline {
     @extend %list-unstyled;

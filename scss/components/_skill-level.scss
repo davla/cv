@@ -2,7 +2,17 @@
 ///     Created by Davide on 2/17/19
 ////
 
+@import '../functions/getter';
 @import '../include/lib';
+@import '../mixins/lib';
+
+@mixin skill-bullets($spacing, $size, $color) {
+    @extend %circle;
+    @include square($size);
+
+    margin-right: get-spacing($spacing);
+    background: $color;
+}
 
 .skill-level {
     @extend %list-unstyled;
