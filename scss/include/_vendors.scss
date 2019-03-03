@@ -5,7 +5,9 @@
 @import 'foundation';
 @import 'settings';
 
-@import '../vendors/fontawesome/fontawesome';
+@import '../vendors/fontawesome/variables';
+@import '../vendors/fontawesome/mixins';
+@import '../vendors/fontawesome/core';
 @import '../vendors/fontawesome/brands';
 @import '../vendors/fontawesome/solid';
 
