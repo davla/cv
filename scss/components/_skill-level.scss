@@ -15,7 +15,7 @@
 }
 
 .skill-level {
-    @extend %list-unstyled;
+    @extend .no-bullet;
 
     li {
         display: inline-block;

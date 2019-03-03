@@ -48,7 +48,7 @@
 
 
 .timeline {
-    @extend %list-unstyled;
+    @extend .no-bullet;
 }
 
 .timeline-period {
