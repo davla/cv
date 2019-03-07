@@ -95,4 +95,11 @@
             {{ timeline.education_item(item) }}
         {% endcall %}
     </article>
+
+    <article class="main-section">
+        <h2>Volunteering</h2>
+        {% call(item) timeline.timeline(volunteering) %}
+            {{ timeline.volunteer_item(item) }}
+        {% endcall %}
+    </article>
 {% endblock %}

@@ -90,6 +90,14 @@
     {{ education_body(item) }}
 {% endmacro %}
 
+{% macro volunteer_item(item) %}
+    {% set heading %}
+        {{ item.role }} <small>at {{ item.event }}</small>
+    {% endset %}
+    {{ item_heading(item, heading) }}
+    <div class="timeline-description">{{ item.description | nl2br }}</div>
+{% endmacro %}
+
 {% macro work_item(item) %}
     {% set heading %}
         {{ item.role }} <small>at {{ item.company.name }}</small>
