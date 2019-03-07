@@ -1,7 +1,14 @@
-{% macro skill_level(level, level_style='skill-bullets') %}
+{% macro skill_discrete(level, level_style='skill-bullets') %}
     <ul class="skill-level">
         {% for n in range(level) -%}
             <li class="{{ level_style }}"></li>
         {%- endfor %}
     </ul>
+{% endmacro %}
+
+{% macro skill_continuous(level, max, wrapper_style='', level_style='') %}
+    <div class="skill-continuous {{ wrapper_style }}">
+        <span class="skill-bar {{ level_style }}"
+              style="width: {{ (level | float) / max * 100 }}%"></span>
+    </div>
 {% endmacro %}

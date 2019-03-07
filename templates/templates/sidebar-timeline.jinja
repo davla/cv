@@ -1,6 +1,6 @@
 {% extends 'layout/sidebar.jinja' %}
 
-{% from 'macros/skill-level.jinja' import skill_level %}
+{% from 'macros/skill-level.jinja' import skill_continuous %}
 {% import 'macros/timeline.jinja' as timeline %}
 
 {% block sidebar %}
@@ -47,10 +47,32 @@
 
     <article class="languages">
         <h2>Language skills:</h2>
-        {% for item in languages %}
-            <div class="lang-name">{{ item.name | capitalize }}</div>
-            {{ skill_level(item.level, 'sidebar-skill-level') }}
-        {% endfor %}
+        <div class="skills-list">
+            {% set max_level = languages | map(attribute='level') | max %}
+            {% for item in languages %}
+                <div class="skill-name">{{ item.name | capitalize }}</div>
+                {{ skill_continuous(item.level, max_level, 'skill-level') }}
+            {% endfor %}
+        </div>
+    </article>
+
+    <article class="skills">
+        <h2>Skills:</h2>
+        <dl>
+            {% for category in skills %}
+                <dt>{{ category.name }}</dt>
+
+                <dd class="skills-list">
+                    {% set max_level = category['items']
+                                       | map(attribute='level') | max %}
+                    {% for item in category['items'] %}
+                        <div class="skill-name">{{ item.name }}</div>
+                        {{ skill_continuous(item.level, max_level,
+                                            'skill-level') }}
+                    {% endfor %}
+                </dd>
+            {% endfor %}
+        </dl>
     </article>
 {% endblock %}
 

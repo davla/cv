@@ -38,13 +38,6 @@ $color: $light-gray;
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
-.sidebar-skill-level {
-    @include skill-bullets(
-        $spacing: small,
-        $size: rem-calc(10px),
-        $color: $color);
-}
-
 .sidebar {
     @extend .grid-y;
 
@@ -139,10 +132,25 @@ $color: $light-gray;
         }
     }
 
-    .languages {
+    .skills-list {
         @extend .grid-x;
+    }
 
-        .lang-name {
+    .skill-continuous {
+        $bar-height: rem-calc(4px);
+
+        @include skill-bar(
+            $bar-color: $color,
+            $bar-height: $bar-height
+        );
+
+        .skill-bar {
+            border-radius: $bar-height * 1.5;
+        }
+    }
+
+    .languages {
+        .skill-name {
             @extend .cell, .xsmall-3;
         }
 

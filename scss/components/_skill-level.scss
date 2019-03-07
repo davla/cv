@@ -6,6 +6,16 @@
 @import '../include/lib';
 @import '../mixins/lib';
 
+@mixin skill-bar($bar-color, $bar-height, $background: transparent) {
+    background: $background;
+
+    .skill-bar {
+        height: $bar-height;
+        background: $bar-color;
+        vertical-align: middle;
+    }
+}
+
 @mixin skill-bullets($spacing, $size, $color) {
     @extend %circle;
     @include square($size);
@@ -14,10 +24,14 @@
     background: $color;
 }
 
-.skill-level {
+.skill-discrete {
     @extend .no-bullet;
 
     li {
         display: inline-block;
     }
+}
+
+.skill-bar {
+    display: inline-block;
 }
