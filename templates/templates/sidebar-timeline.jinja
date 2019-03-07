@@ -34,6 +34,7 @@
     </article>
 
     <article class="interests">
+        <h2>Interests:</h2>
         <ul>
             {% for item in interests %}
                 <li>
@@ -45,6 +46,7 @@
     </article>
 
     <article class="languages">
+        <h2>Language skills:</h2>
         {% for item in languages %}
             <div class="lang-name">{{ item.name | capitalize }}</div>
             {{ skill_level(item.level, 'sidebar-skill-level') }}

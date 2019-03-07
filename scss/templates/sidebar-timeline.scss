@@ -28,8 +28,8 @@ $color: $light-gray;
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
-@function main-section-gutter($gutter, $_, $__) {
-    @return $gutter * 2;
+@function multiply-gutter($multiplier, $gutter, $_, $__) {
+    @return $gutter * $multiplier;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -46,9 +46,9 @@ $color: $light-gray;
 }
 
 .sidebar {
-    @extend .grid-y, .grid-padding-y;
+    @extend .grid-y;
 
-    justify-content: space-between;
+    justify-content: flex-start;
     background: $background;
     color: $color;
 
@@ -58,6 +58,24 @@ $color: $light-gray;
 
     > * {
         @extend .cell;
+
+        @include xy-gutters(
+            $gutter-type: padding,
+            $gutter-position: top bottom,
+            $gutters: _map-values($grid-column-gutters,
+                _partial(multiply-gutter, 1.5))
+        );
+    }
+
+    h2 {
+        margin-bottom: get-spacing(small);
+        font-size: get-font-size(large);
+        font-weight: bold;
+    }
+
+    h3 {
+        margin-bottom: get-spacing(small);
+        font-size: get-font-size(medium);
     }
 
     .header {
@@ -74,7 +92,7 @@ $color: $light-gray;
 
         .name {
             margin-top: get-spacing(small);
-            font-size: get-font-size(large);
+            font-size: get-font-size(xlarge);
             font-weight: bold;
         }
 
@@ -132,24 +150,45 @@ $color: $light-gray;
             @extend .cell, .xsmall-9;
         }
     }
+
+    .skills {
+        .skills-list {
+            @include xy-gutters(
+                $gutter-type: padding,
+                $gutter-position: left);
+            @include xy-gutters(
+                $gutter-type: padding,
+                $gutter-position: bottom,
+                $gutters: _map-values($grid-column-gutters,
+                    _partial(multiply-gutter, 0.5)));
+        }
+
+        .skill-name {
+            @extend .cell, .xsmall-5;
+        }
+
+        .skill-level {
+            @extend .cell, .xsmall-7;
+        }
+    }
 }
 
 .main-content {
     .main-section {
         @include xy-gutters($gutter-type: margin, $gutter-position: top);
 
-        h2 {
-            margin-bottom: get-spacing(medium);
-        }
-
         & + .main-section {
             @include xy-gutters(
                 $gutter-type: margin,
                 $gutter-position: top,
                 $gutters: _map-values($grid-column-gutters,
-                    main-section-gutter)
+                    _partial(multiply-gutter, 2))
             );
         }
+    }
+
+    h2 {
+        margin-bottom: get-spacing(medium);
     }
 
     .timeline-item {
