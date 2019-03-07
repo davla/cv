@@ -6,7 +6,7 @@
 @import '../include/lib';
 @import 'lib';
 
-@mixin icon-circle($background, $text, $size, $spacing-right) {
+@mixin icon-circle($size, $spacing-right) {
     $size: get-icon-size($size);
     $circle-size: $size + 1rem;
 
@@ -16,11 +16,27 @@
         @extend %circle;
         @include square($circle-size);
 
-        background: $background;
-        color: $text;
         line-height: $circle-size;
         font-size: $size;
         text-align: center;
-        vertical-align: middle;
+    }
+}
+
+@mixin icon-circle-outline($color, $size, $border-width, $spacing-right) {
+    @include icon-circle($size, $spacing-right);
+
+    &::before {
+        box-sizing: content-box;
+        border: $border-width solid $color;
+        color: $color;
+    }
+}
+
+@mixin icon-circle-solid($background, $text, $size, $spacing-right) {
+    @include icon-circle($size, $spacing-right);
+
+    &::before {
+        background: $background;
+        color: $text;
     }
 }

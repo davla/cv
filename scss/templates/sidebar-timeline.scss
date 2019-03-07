@@ -131,7 +131,7 @@ $color: $light-gray;
         }
 
         span[class*="icon"] {
-            @include icon-circle(
+            @include icon-circle-solid(
                 $background: $color,
                 $text: $background,
                 $size: large,

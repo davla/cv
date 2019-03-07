@@ -8,7 +8,9 @@
     .icon-#{$name} {
         @extend %fa-icon, .#{$fa-class};
 
-        &:before {
+        vertical-align: middle;
+
+        &::before {
             display: inline-block;
             content: fa-content($fa-icon);
         }
