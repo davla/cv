@@ -73,6 +73,10 @@ $list-margin-bottom: 0;
 $paragraph-lineheight: $list-lineheight;
 $paragraph-margin-bottom: 0;
 
+$print-breakpoint: medium;
+$print-hrefs: false;
+$print-transparent-backgrounds: false;
+
 $xy-grid-options: (
   base-grid: true,
   margin-grid: false,

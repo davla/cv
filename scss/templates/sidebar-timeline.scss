@@ -9,6 +9,7 @@
 @import '../include/base';
 @import '../include/icons';
 @import '../include/lib';
+@import '../include/print';
 @import '../layout/sidebar';
 @import '../mixins/icons';
 @import '../mixins/lib';
@@ -39,9 +40,6 @@ $color: $light-gray;
 ///////////////////////////////////////////////////////////////////////////////
 
 .sidebar {
-    @extend .grid-y;
-
-    justify-content: flex-start;
     background: $background;
     color: $color;
 
@@ -49,8 +47,13 @@ $color: $light-gray;
         color: $color;
     }
 
+    * {
+        /* !important is for print styles */
+        color: $color !important;
+    }
+
     > * {
-        @extend .cell;
+        @extend %print-group;
 
         @include xy-gutters(
             $gutter-type: padding,
