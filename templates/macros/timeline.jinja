@@ -106,11 +106,14 @@
     {{ work_body(item) }}
 {% endmacro %}
 
-{% macro timeline(items, class='timeline') %}
+{% macro timeline(items, class='timeline', spacer_class='timeline-spacer',
+                  item_class='timeline-item') %}
     <ul class="{{ class }}">
         {% for item in items %}
-            <li class="timeline-item">
-                {{ caller(item) }}
+            <li class="{{ spacer_class }}">
+                <div class="{{ item_class }}">
+                    {{ caller(item) }}
+                </div>
             </li>
         {% endfor %}
     </ul>

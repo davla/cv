@@ -2,38 +2,67 @@
 ///     Created by Davide on 2/19/19
 ////
 
+@import 'sassdash';
 @import 'util/unit';
 
 @import '../functions/getter';
 @import '../include/lib';
+@import '../include/vendors';
 @import '../mixins/lib';
 
-@mixin timeline-item($color, $spacing, $dot-size,
-    $bar-width: $dot-size / 2.5) {
-    position: relative;
-    padding-top: 0;
-    padding-left: $dot-size + $spacing;
-
-    &::before {
-        @include square($dot-size);
-
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 10;
-        border-radius: 50%;
-        background: $color;
-
-        content: '';
+@mixin bp-prop($values, $prop) {
+    @if type-of($values) == 'map' {
+        @each $bp, $value in $values {
+            @include breakpoint($bp up) {
+                #{$prop}: rem-calc($value) / 2;
+            }
+        }
     }
+    @else {
+        #{$prop}: $values;
+    }
+}
+
+
+@mixin make-spacing($spacing, $spacing-type) {
+    @each $position, $value in $spacing {
+        @if type-of($value) == 'map' {
+            @include xy-gutters(
+                $gutters: $value,
+                $gutter-type: $spacing-type,
+                $gutter-position: $position);
+        }
+        @else {
+            #{$spacing-type}-#{$position}: $value;
+        }
+    }
+}
+
+@function aaa($b, $s, $_, $__) {
+    @return rem-calc($b) + rem-calc($s);
+}
+
+@mixin timeline($color, $spacing, $dot-size, $bar-width: $dot-size / 2.5,
+    $spacer-class: timeline-spacer, $item-class: timeline-item) {
+
+        $a: _partial(aaa, $dot-size);
+    $spacing-top: map-get($spacing, top);
+    $spacing-left: _map-values(map-get($spacing, left), $a);
+    $spacing: map-merge($spacing, (left: $spacing-left));
+
+    @extend .no-bullet;
+
+    @include make-spacing((top: $spacing-top), padding);
+
+    position: relative;
 
     &::after {
+        @include bp-prop($spacing-top, top);
+
         display: inline-block;
         position: absolute;
-        top: $dot-size / 2;
         left: ($dot-size - $bar-width) / 2;
-        bottom: -$dot-size / 2;
+        bottom: 0;
         border-radius: $bar-width / 2;
         width: $bar-width;
         background: $color;
@@ -41,14 +70,33 @@
         content: '';
     }
 
-    &:last-of-type::after {
-        bottom: 0;
+    .#{$spacer-class} {
+        @include make-spacing(_pick($spacing, (right, bottom, left)), padding);
+
+        position: relative;
+
+        &::before {
+            @include square($dot-size);
+
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border-radius: 50%;
+            background: $color;
+
+            content: '';
+        }
+
+        & + .#{$spacer-class} {
+            @include make-spacing($spacing, padding);
+
+            &::before {
+                @include bp-prop($spacing-top, top);
+            }
+        }
     }
-}
-
-
-.timeline {
-    @extend .no-bullet;
 }
 
 .timeline-period {

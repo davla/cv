@@ -202,12 +202,20 @@ $color: $light-gray;
         margin-bottom: get-spacing(medium);
     }
 
-    .timeline-item {
-        @include timeline-item(
+    .timeline {
+        @include timeline(
             $color: $black,
             $dot-size: rem-calc(30px),
-            $spacing: get-spacing(xlarge)
+            $spacing: (
+                top: $grid-column-gutters,
+                right: $grid-column-gutters,
+                bottom: $grid-column-gutters,
+                left: $grid-column-gutters
+            )
         );
-        @include xy-gutters($gutter-type: padding, $gutter-position: bottom);
+    }
+
+    .timeline-item {
+        @extend %print-group;
     }
 }
