@@ -67,26 +67,16 @@
 .timeline-info {
     margin-top: get-spacing(large);
 
-    > dt {
+    dt {
         font-size: get-font-size(large);
         font-weight: normal;
     }
 
-    > dd {
+    dd {
         margin-left: get-spacing(large);
     }
 
-    > dd + dt {
+    dd + dt {
         margin-top: get-spacing(small);
-    }
-
-    dl {
-        dt, dd {
-            display: inline-block;
-        }
-
-        dd + dt {
-            margin-left: get-spacing(xlarge);
-        }
     }
 }

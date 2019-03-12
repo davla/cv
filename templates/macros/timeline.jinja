@@ -34,21 +34,9 @@
         <div class="timeline-description">{{ item.description | nl2br }}</div>
     {% else %}
         <dl class="timeline-info">
-            {% if item.company['core-business'] or item.company.size %}
+            {% if item.company.description %}
                 <dt>Company</dt>
-                <dd>
-                    <dl>
-                        {% if item.company['core-business'] %}
-                            <dt>Core business:</dt>
-                            <dd>{{ item.company['core-business'] }}</dd>
-                        {% endif %}
-
-                        {% if item.company.size %}
-                            <dt>Size:</dt>
-                            <dd>{{ item.company.size }}</dd>
-                        {% endif %}
-                    </dl>
-                </dd>
+                <dd>{{ item.company.description }}</dd>
             {% endif %}
 
             {% if item.tasks %}
@@ -60,11 +48,6 @@
                         {% endfor %}
                     </ul>
                 </dd>
-            {% endif %}
-
-            {% if item.workflow %}
-                <dt>Workflow and communication</dt>
-                <dd>{{ item.workflow }}</dd>
             {% endif %}
 
             {% if item.technologies %}
