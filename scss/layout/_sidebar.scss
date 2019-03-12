@@ -10,7 +10,7 @@
     height: 100%;
 
     .sidebar {
-        @extend .cell, .show-for-medium, .medium-4, .large-3;
+        @extend .cell, .show-for-medium, .medium-3;
     }
 
     .main-content {

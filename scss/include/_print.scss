@@ -2,21 +2,25 @@
 ///     Created by Davide on 3/8/19
 ////
 
-%print-group {
-    break-inside: avoid;
-}
-
 @page {
     size: A4 portrait;
     margin: 0;
 }
 
-* {
-    -webkit-print-color-adjust: exact !important;
+@media print {
+    %print-group {
+        break-inside: avoid;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    h1, h2, h3, h4, h5 {
+        break-after: avoid;
+    }
+
+    html {
+        font-size: 10pt !important;
+    }
 }
-
-h1, h2, h3, h4, h5 {
-    break-after: avoid;
-}
-
-

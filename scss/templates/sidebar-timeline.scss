@@ -109,10 +109,11 @@ $color: $light-gray;
 
         li {
             margin: get-spacing(xsmall) 0;
+            white-space: nowrap;
         }
 
         span[class*="icon"] {
-            padding-right: get-spacing(medium);
+            padding-right: get-spacing(small);
             font-size: get-icon-size(medium);
         }
     }
