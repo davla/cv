@@ -3,7 +3,6 @@
 ////
 
 @import '../functions/getter';
-@import '../include/lib';
 @import '../mixins/lib';
 
 @mixin skill-bar($bar-color, $bar-height, $background: transparent) {
@@ -17,10 +16,10 @@
 }
 
 @mixin skill-bullets($spacing, $size, $color) {
-    @extend %circle;
     @include square($size);
 
     margin-right: get-spacing($spacing);
+    border-radius: 50%;
     background: $color;
 }
 

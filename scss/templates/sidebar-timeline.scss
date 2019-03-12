@@ -8,7 +8,6 @@
 @import '../components/timeline';
 @import '../include/base';
 @import '../include/icons';
-@import '../include/lib';
 @import '../include/print';
 @import '../layout/sidebar';
 @import '../mixins/icons';
@@ -78,10 +77,9 @@ $color: $light-gray;
         text-align: center;
 
         img {
-            @extend %circle;
-
             display: block;
             margin: auto;
+            border-radius: 50%;
             height: auto;
             width: 70%;
         }

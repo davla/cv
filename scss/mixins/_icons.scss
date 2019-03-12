@@ -3,7 +3,6 @@
 ////
 
 @import '../functions/getter';
-@import '../include/lib';
 @import 'lib';
 
 @mixin icon-circle($size, $spacing-right) {
@@ -13,9 +12,9 @@
     padding-right: get-spacing($spacing-right);
 
     &::before {
-        @extend %circle;
         @include square($circle-size);
 
+        border-radius: 50%;
         line-height: $circle-size;
         font-size: $size;
         text-align: center;
