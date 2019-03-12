@@ -153,11 +153,11 @@ $color: $light-gray;
 
     .languages {
         .skill-name {
-            @extend .cell, .xsmall-3;
+            @extend .cell, .xsmall-4, .large-3;
         }
 
         .skill-level {
-            @extend .cell, .xsmall-9;
+            @extend .cell, .xsmall-8, .large-9;
         }
     }
 
@@ -174,11 +174,11 @@ $color: $light-gray;
         }
 
         .skill-name {
-            @extend .cell, .xsmall-5;
+            @extend .cell, .xsmall-6, .large-5;
         }
 
         .skill-level {
-            @extend .cell, .xsmall-7;
+            @extend .cell, .xsmall-6, .large-7;
         }
     }
 }
