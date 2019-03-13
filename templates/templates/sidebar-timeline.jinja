@@ -77,10 +77,12 @@
 {% endblock %}
 
 {% block main_content %}
-    <article class="main-section">
-        <h2>Profile</h2>
-        <p>{{ profile | nl2br }}</p>
-    </article>
+    {% if profile %}
+        <article class="main-section">
+            <h2>Profile</h2>
+            <p>{{ profile | nl2br }}</p>
+        </article>
+    {% endif %}
 
     <article class="main-section">
         <h2>Work experience</h2>
@@ -96,10 +98,12 @@
         {% endcall %}
     </article>
 
-    <article class="main-section">
-        <h2>Volunteering</h2>
-        {% call(item) timeline.timeline(volunteering) %}
-            {{ timeline.volunteer_item(item) }}
-        {% endcall %}
-    </article>
+    {% if volunteering %}
+        <article class="main-section">
+            <h2>Volunteering</h2>
+            {% call(item) timeline.timeline(volunteering) %}
+                {{ timeline.volunteer_item(item) }}
+            {% endcall %}
+        </article>
+    {% endif %}
 {% endblock %}

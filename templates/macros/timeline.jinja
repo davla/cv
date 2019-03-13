@@ -78,7 +78,11 @@
         {{ item.role }} <small>at {{ item.event }}</small>
     {% endset %}
     {{ item_heading(item, heading) }}
-    <div class="timeline-description">{{ item.description | nl2br }}</div>
+    {% if item.description %}
+        <div class="timeline-description">
+            {{ item.description | nl2br }}
+        </div>
+    {% endif %}
 {% endmacro %}
 
 {% macro work_item(item) %}
