@@ -11,8 +11,9 @@
 @import '../vendors/fontawesome/brands';
 @import '../vendors/fontawesome/solid';
 
+// @import 'gutenberg';
+
 @include foundation-global-styles;
 @include foundation-typography;
 @include foundation-visibility-classes;
 @include foundation-xy-grid-classes($xy-grid-options...);
-

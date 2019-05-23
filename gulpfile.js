@@ -42,7 +42,8 @@ const opts = {
 
             includePaths: [
                 ['foundation-sites', 'scss'],
-                ['sassdash', 'scss']
+                ['sassdash', 'scss'],
+                ['gutenberg-css', 'scss']
             ].map(libPath => path.join(__dirname, 'node_modules', ...libPath))
         },
 
@@ -78,5 +79,3 @@ gulp.task('watch-scss', gulp.parallel(
  * @summary Default task is aliased to watch.
  */
 gulp.task('default', gulp.task('watch-scss'));
-
-
