@@ -2,6 +2,74 @@
 ///     Created by Davide on 23/05/19
 ////
 
+@import '../functions/getter';
+@import '../include/settings';
 @import '../include/base';
 @import '../include/icons';
 @import '../layout/mini-cv';
+@import '../mixins/lib';
+
+%headings {
+    font-weight: bold;
+}
+
+h1 {
+    @extend %headings;
+
+    color: $primary-color;
+    font-size: get-font-size(xlarge);
+    font-variant: small-caps;
+}
+
+h2 {
+    @extend %headings;
+
+    margin-top: get-spacing(small);
+    font-size: get-font-size(medium);
+}
+
+p {
+    margin-bottom: get-spacing(large);
+}
+
+.skills ul {
+    columns: 2;
+}
+
+img {
+    display: block;
+    margin: get-spacing(medium) auto;
+    width: 60%;
+}
+
+.contact {
+    width: 70%;
+    margin: auto;
+
+    h1 {
+        text-align: center;
+    }
+
+    .name {
+        margin-bottom: 0;
+        font-size: get-font-size(medium);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    ul {
+        @extend .no-bullet;
+
+        li {
+            margin: get-spacing(small) 0;
+            @include a() {
+                text-decoration: none;
+            }
+        }
+
+        span[class*="icon"] {
+            padding-right: get-spacing(small);
+            font-size: get-icon-size(medium);
+        }
+    }
+}

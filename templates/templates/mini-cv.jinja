@@ -9,10 +9,12 @@
     </section>
 
     <section class="work">
+        <h1>Latest work experience</h1>
         {{ mini_cv_work(work[0]) }}
     </section>
 
     <section class="education">
+        <h1>Latest education</h1>
         {{ mini_cv_education(education[0]) }}
     </section>
 
@@ -27,9 +29,12 @@
 {% endblock %}
 
 {% block mini_cv_back %}
-    <img src="{{ header.picture_url }}" alt="picture" />
 
     <section class="contact">
+        <h1>Contact</h1>
+
+        <img src="{{ header.picture_url }}" alt="picture" />
+
         <p class="name">
             {{ header.first_name }} {{ header.last_name }}
         </p>

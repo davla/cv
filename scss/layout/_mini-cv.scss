@@ -5,7 +5,7 @@
 @import '../include/vendors';
 
 .page {
-    @extend .grid-x, .grid-padding-x;
+    @extend .grid-x, .grid-padding-x, .grid-padding-y;
 
     align-items: stretch;
     height: 100%;
