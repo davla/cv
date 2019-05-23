@@ -10,7 +10,7 @@
     align-items: stretch;
     height: 100%;
 
-    .mini-cv {
+    > * {
         @extend .cell, .xsmall-6;
     }
 }

@@ -3,8 +3,13 @@
 {% block body %}
     <main class="page">
         {% for _ in range(4) -%}
-            <div class="mini-cv">
-                {% block mini_cv %}{% endblock %}
+            <div class="mini-cv-front">
+                {% block mini_cv_front %}{% endblock %}
+            </div>
+        {% endfor %}
+        {% for _ in range(4) -%}
+            <div class="mini-cv-back">
+                {% block mini_cv_back %}{% endblock %}
             </div>
         {% endfor %}
     </main>

@@ -1,5 +1,52 @@
 {% extends 'layout/mini-cv.jinja' %}
 
-{% block mini_cv %}
-    aaaa
+{% from 'macros/mini-cv.jinja' import mini_cv_work, mini_cv_education %}
+
+{% block mini_cv_front %}
+    <section class="profile">
+        <h1>About me</h1>
+        {{ profile | nl2br }}
+    </section>
+
+    <section class="work">
+        {{ mini_cv_work(work[0]) }}
+    </section>
+
+    <section class="education">
+        {{ mini_cv_education(education[0]) }}
+    </section>
+
+    <section class="skills">
+        <h1>Skills</h1>
+        <ul>
+            {% for item in skills %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
+
+{% block mini_cv_back %}
+    <img src="{{ header.picture_url }}" alt="picture" />
+
+    <section class="contact">
+        <p class="name">
+            {{ header.first_name }} {{ header.last_name }}
+        </p>
+
+        <p class="title">{{ header.title }}</p>
+
+        <ul>
+            {% for item in contact %}
+                <li>
+                    <span class="icon-{{ item.icon }}"></span>
+                    {% if item.href %}
+                        <a href="{{ item.href }}">{{ item.text }}</a>
+                    {% else %}
+                        {{ item.text }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}

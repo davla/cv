@@ -1,0 +1,22 @@
+{% macro mini_cv_item(item, content) %}
+    <h2>{{ item.from }} - {{ item.to }}</h2>
+
+    <p class="mini-cv-item-content">
+        {{ content }}
+    </p>
+{% endmacro %}
+
+{% macro mini_cv_work(item) %}
+    {% set content -%}
+        {{ item.role }} at {{ item.company.name }}, {{ item.location }}
+    {%- endset %}
+    {{ mini_cv_item(item, content) }}
+{% endmacro %}
+
+{% macro mini_cv_education(item) %}
+    {% set content -%}
+        {{ item.degree }} in {{ item.program }}, {{ item.institution.name }},
+        {{ item.location }}
+    {%- endset %}
+    {{ mini_cv_item(item, content) }}
+{% endmacro %}
