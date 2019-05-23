@@ -1,0 +1,16 @@
+////
+///     Created by Davide on 2/13/19
+////
+
+@import '../include/vendors';
+
+.page {
+    @extend .grid-x, .grid-padding-x;
+
+    align-items: stretch;
+    height: 100%;
+
+    .mini-cv {
+        @extend .cell, .xsmall-6;
+    }
+}

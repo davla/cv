@@ -1,0 +1,11 @@
+{% extends 'include/base.jinja' %}
+
+{% block body %}
+    <main class="page">
+        {% for _ in range(4) -%}
+            <div class="mini-cv">
+                {% block mini_cv %}{% endblock %}
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}
