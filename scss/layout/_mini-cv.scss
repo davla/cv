@@ -2,15 +2,19 @@
 ///     Created by Davide on 2/13/19
 ////
 
+@import '../functions/getter';
 @import '../include/vendors';
 
 .page {
     @extend .grid-x, .grid-padding-x, .grid-padding-y;
 
-    align-items: stretch;
     height: 100%;
 
     > * {
         @extend .cell, .xsmall-6;
+
+        @media print {
+            height: (get-page-size(a4, height) / 2);
+        }
     }
 }

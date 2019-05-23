@@ -12,6 +12,10 @@
     @return map-get($icon-size, $size);
 }
 
+@function get-page-size($size, $side: height) {
+    @return nth(map-get($page-size, $size), if($side == width, 1, 2));
+}
+
 @function get-spacing($size) {
     @return map-get($spacing, $size);
 }
