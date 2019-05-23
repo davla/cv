@@ -8,6 +8,11 @@
 
 {% macro education_body(item) %}
     {% if item.description %}
+        {% if item.thesis %}
+            <h5 style="font-weight: bold; margin-top: 1ex;">Thesis</h5>
+            <p>{{ item.thesis }}</p>
+        {% endif %}
+
         <div class="timeline-description">{{ item.description | nl2br }}</div>
     {% else %}
         <dl class="timeline-info">
