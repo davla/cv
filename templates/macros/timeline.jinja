@@ -78,9 +78,9 @@
     {{ education_body(item) }}
 {% endmacro %}
 
-{% macro volunteer_item(item) %}
+{% macro other_item(item) %}
     {% set heading %}
-        {{ item.role }} <small>at {{ item.event }}</small>
+        {{ item.role }} <small>at {{ item.organization.name }}</small>
     {% endset %}
     {{ item_heading(item, heading) }}
     {% if item.description %}

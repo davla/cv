@@ -98,11 +98,11 @@
         {% endcall %}
     </article>
 
-    {% if volunteering %}
+    {% if other %}
         <article class="main-section">
-            <h2>Volunteering</h2>
-            {% call(item) timeline.timeline(volunteering) %}
-                {{ timeline.volunteer_item(item) }}
+            <h2>Other experiences</h2>
+            {% call(item) timeline.timeline(other) %}
+                {{ timeline.other_item(item) }}
             {% endcall %}
         </article>
     {% endif %}
