@@ -5,7 +5,7 @@
 @import '../functions/getter';
 @import '../include/settings';
 @import '../include/base';
-@import '../include/icons';
+@import '../include/lib';
 @import '../layout/mini-cv';
 @import '../mixins/lib';
 
@@ -58,18 +58,6 @@ img {
     }
 
     ul {
-        @extend .no-bullet;
-
-        li {
-            margin: get-spacing(small) 0;
-            @include a() {
-                text-decoration: none;
-            }
-        }
-
-        span[class*="icon"] {
-            padding-right: get-spacing(small);
-            font-size: get-icon-size(medium);
-        }
+        @extend %contact-info;
     }
 }
