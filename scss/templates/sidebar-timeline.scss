@@ -43,7 +43,7 @@ $color: $light-gray;
     background: $background;
     color: $color;
 
-    @include a() {
+    #{$a} {
         color: $color;
     }
 

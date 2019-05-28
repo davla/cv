@@ -2,12 +2,6 @@
 ///     Created by Davide on 2/17/19
 ////
 
-@mixin a() {
-    a, a:active, a:link, a:visited {
-        @content
-    }
-}
-
 @mixin square($size) {
     height: $size;
     width: $size;

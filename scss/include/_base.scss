@@ -5,13 +5,13 @@
 @import 'print';
 @import 'vendors';
 @import '../functions/getter';
-@import '../mixins/lib';
+@import '../include/lib';
 
 html, body {
     height: 100%;
 }
 
-@include a() {
+#{$a} {
     color: initial;
     text-decoration: underline;
 }

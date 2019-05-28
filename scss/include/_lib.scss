@@ -9,6 +9,8 @@
 @import '../include/vendors';
 @import '../functions/getter';
 
+$a: 'a, a:active, a:link, a:visited';
+
 %contact-info {
     @extend .no-bullet;
 
