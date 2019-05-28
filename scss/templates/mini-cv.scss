@@ -1,4 +1,6 @@
 ////
+///     This file contains styles for the mini-cv template
+///
 ///     Created by Davide on 23/05/19
 ////
 
@@ -40,18 +42,18 @@ p {
     columns: 2;
 }
 
-img {
-    display: block;
-    margin: get-spacing(medium) auto;
-    width: 60%;
-}
-
 .contact {
     width: 70%;
     margin: auto;
 
     h1 {
         text-align: center;
+    }
+
+    img {
+        display: block;
+        margin: get-spacing(medium) auto;
+        width: 60%;
     }
 
     .name {

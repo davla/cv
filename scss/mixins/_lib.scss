@@ -1,7 +1,15 @@
 ////
+///     This file contains general utility mixins that don't find home anywhere
+///     else
+///
 ///     Created by Davide on 2/17/19
 ////
 
+///
+/// Makes an element squared to a certain size
+///
+/// @param {number} $size - The size (both height and width)
+///
 @mixin square($size) {
     height: $size;
     width: $size;

@@ -9,8 +9,10 @@
 @import '../include/vendors';
 @import '../functions/getter';
 
+// Selector for all links
 $a: 'a, a:active, a:link, a:visited';
 
+// Placeholder for contact info list
 %contact-info {
     @extend .no-bullet;
 
@@ -25,17 +27,17 @@ $a: 'a, a:active, a:link, a:visited';
     }
 }
 
+// Styles for inline lists - uses bullet as separator
 ul.inline {
-    margin-left: 0;
-    padding-left: 0;
+    @extend .no-bullet;
 
     li {
         display: inline-block;
 
         & + li::before {
-            display: inline-block;
             padding: 0 0.3em;
 
+            // Bullet character
             content: '\2022';
         }
     }
