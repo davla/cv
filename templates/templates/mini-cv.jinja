@@ -44,12 +44,7 @@
         <ul>
             {% for item in contact %}
                 <li>
-                    <span class="icon-{{ item.icon }}"></span>
-                    {% if item.href %}
-                        <a href="{{ item.href }}">{{ item.text }}</a>
-                    {% else %}
-                        {{ item.text }}
-                    {% endif %}
+                    <span class="icon-{{ item.icon }}"></span> {{ item.text }}
                 </li>
             {% endfor %}
         </ul>
