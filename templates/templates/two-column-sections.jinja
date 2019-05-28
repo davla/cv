@@ -1,0 +1,27 @@
+{% extends 'layout/simple.jinja' %}
+
+{% from 'macros/lib.jinja' import contact_info %}
+
+{% block content %}
+    <article class="header">
+
+        <div class="personal">
+            <p class="name">
+                {{ header.first_name }} {{ header.last_name }}
+            </p>
+
+            <p class="title">{{ header.title }}</p>
+            <p class="location">{{ header.location }}</p>
+        </div>
+
+        <div class="contact">
+            {{ contact_info(contact) }}
+        </div>
+
+        <p class="summary">{{ header.summary }}</p>
+
+        <div class="picture">
+            <img src="{{ header.picture_url }}" alt="picture" />
+        </div>
+    </article>
+{% endblock %}

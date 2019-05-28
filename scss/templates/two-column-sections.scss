@@ -1,0 +1,62 @@
+////
+///     This file contains styles for the two-column-sections template
+///
+///     Created by Davide on 28/05/19
+////
+
+@import '../functions/getter';
+@import '../include/base';
+@import '../include/icons';
+@import '../include/lib';
+
+.header {
+    @extend .grid-x, .grid-padding-x, .grid-padding-y;
+
+    align-items: center;
+    background: $primary-color;
+
+    > * {
+        @extend .cell;
+    }
+
+    .personal {
+        @extend .medium-4;
+
+        > p {
+            margin-bottom: get-spacing(xsmall);
+        }
+
+        .name {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .location {
+            font-style: italic;
+        }
+    }
+
+    .contact {
+        @extend .medium-3;
+
+        ul {
+            @extend %contact-info;
+        }
+    }
+
+    .summary {
+        @extend .medium-3;
+    }
+
+    .picture {
+        @extend .medium-2;
+
+        img {
+            display: block;
+            margin: auto;
+            border-radius: 50%;
+            max-height: 13ex;
+        }
+    }
+}

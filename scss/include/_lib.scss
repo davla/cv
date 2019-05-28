@@ -1,6 +1,26 @@
 ////
+///     This file contains miscellaneous utility styles that don't find home
+///     anythere else
+///
 ///     Created by Davide on 2/17/19
 ////
+
+@import '../include/vendors';
+@import '../functions/getter';
+
+%contact-info {
+    @extend .no-bullet;
+
+    li {
+        margin: get-spacing(xsmall) 0;
+        white-space: nowrap;
+    }
+
+    span[class*="icon"] {
+        padding-right: get-spacing(small);
+        font-size: get-icon-size(medium);
+    }
+}
 
 ul.inline {
     margin-left: 0;
