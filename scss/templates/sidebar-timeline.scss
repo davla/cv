@@ -103,23 +103,25 @@ $color: $light-gray;
 
     .contact {
         ul {
-            @extend .no-bullet;
-        }
-
-        li {
-            margin: get-spacing(xsmall) 0;
-            white-space: nowrap;
-        }
-
-        span[class*="icon"] {
-            padding-right: get-spacing(small);
-            font-size: get-icon-size(medium);
+            @extend %contact-info;
         }
     }
 
     .interests {
         ul {
-            @extend %contact-info;
+            @extend .no-bullet;
+        }
+
+        li {
+            margin: get-spacing(small) 0;
+        }
+
+        span[class*="icon"] {
+            @include icon-circle-solid(
+                $background: $color,
+                $text: $background,
+                $size: large,
+                $spacing-right: medium);
         }
     }
 
