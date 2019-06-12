@@ -15,6 +15,15 @@
 
 $columns-gap: rem-calc(50px);
 
+@import 'sassdash';
+@function multiply-gutter($multiplier, $gutter, $_, $__) {
+    @return $gutter * $multiplier;
+}
+$large-gutters: _map-values($grid-column-gutters,
+    _partial(multiply-gutter, 2));
+$half-gutters: _map-values($grid-column-gutters,
+    _partial(multiply-gutter, 0.5));
+
 %two-columned {
     columns: 2;
     column-gap: $columns-gap;
@@ -24,8 +33,25 @@ $columns-gap: rem-calc(50px);
     }
 }
 
+%page-gutters {
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: right left,
+        $gutters: $large-gutters
+    );
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: top
+    );
+}
+
 .header {
-    @extend .grid-x, .grid-padding-x, .grid-padding-y;
+    @extend .grid-x, .grid-padding-x, .grid-padding-y, %print-group;
+
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: right left
+    );
 
     align-items: center;
     background: $primary-color;
@@ -90,12 +116,7 @@ h2 {
 }
 
 .intro {
-    @extend %two-columned;
-
-    @include xy-gutters(
-        $gutter-type: padding,
-        $gutter-position: top right bottom left
-    );
+    @extend %page-gutters, %print-group, %two-columned;
 
     .profile {
         break-inside: avoid;
@@ -108,10 +129,7 @@ h2 {
 }
 
 .main-section {
-    @include xy-gutters(
-        $gutter-type: padding,
-        $gutter-position: top right bottom left
-    );
+    @extend %page-gutters, %print-group;
 
     h2 {
         margin-bottom: get-spacing(large);

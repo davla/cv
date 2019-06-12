@@ -7,20 +7,24 @@
     margin: 0;
 }
 
-@media print {
-    %print-group {
-        break-inside: avoid;
-    }
+%print-group {
+    break-inside: avoid;
+}
 
+h1, h2, h3, h4, h5, h6, dt {
+    break-after: avoid;
+}
+
+@media print {
     * {
         -webkit-print-color-adjust: exact !important;
     }
 
-    h1, h2, h3, h4, h5 {
-        break-after: avoid;
-    }
-
     html {
         font-size: 10pt !important;
+    }
+
+    .content-wrapper {
+        padding: 0;
     }
 }
