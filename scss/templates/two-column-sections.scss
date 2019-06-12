@@ -6,6 +6,7 @@
 
 @import 'util/unit';
 @import '../components/chronology';
+@import '../components/skill-level';
 @import '../functions/getter';
 @import '../include/base';
 @import '../include/lib';
@@ -131,4 +132,47 @@ h2 {
         @include xy-gutters($gutter-type: margin, $gutter-position: bottom);
     }
 
+    .chronology-bullets li {
+        margin: get-spacing(medium) 0;
+    }
+
+    .chronology-section {
+        dt {
+            margin-top: get-spacing(small);
+        }
+
+        dd {
+            margin-bottom: get-spacing(small);
+            padding-left: get-spacing(xlarge) * 2;
+        }
+    }
+}
+
+.skills {
+    @extend .no-bullet, %page-gutters, %print-group, %two-columned;
+
+    .skills-list {
+        @extend .grid-x, .grid-padding-x;
+
+        margin-bottom: get-spacing(medium);
+    }
+
+    .skill-name {
+        @extend .cell, .xsmall-6, .large-5;
+    }
+
+    .skill-level {
+        @extend .cell, .xsmall-6, .large-7;
+
+        $bar-height: rem-calc(4px);
+
+        @include skill-bar(
+            $bar-color: $black,
+            $bar-height: $bar-height
+        );
+
+        .skill-bar {
+            border-radius: $bar-height * 1.5;
+        }
+    }
 }

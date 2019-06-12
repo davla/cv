@@ -5,19 +5,19 @@
         <div class="{{ class }}-description">
             {{ item.content | nl2br }}
         </div>
+    {% elif item.content is mapping %}
+        <dl class="{{ class }}-section">
+            {% for title, content in item.content.items() %}
+                <dt>{{ title | capitalize }}</dt>
+                <dd>{{ content }}</dd>
+            {% endfor %}
+        </dl>
     {% elif item.content is sequence %}
         <ul class="{{ class }}-bullets">
             {% for bullet in item.content %}
                 <li>{{ bullet }}</li>
             {% endfor %}
         </ul>
-    {% elif item.content is mapping %}
-        <dl class="{{ class }}-items">
-            {% for title, bullet in item.content %}
-                <dt>{{ title }}</dt>
-                <dd>{{ content }}</dd>
-            {% endfor %}
-        </dl>
     {% endif %}
 {% endmacro %}
 

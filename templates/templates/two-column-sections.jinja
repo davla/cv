@@ -1,7 +1,8 @@
 {% extends 'layout/simple.jinja' %}
 
 {% from 'macros/lib.jinja' import contact_info, interests_info %}
-{% import 'macros/chronology.jinja' as chronology %}
+{% from 'macros/skill-level.jinja' import skill_continuous %}
+{% import 'macros/chronology.jinja' as chron %}
 
 {% block content %}
     <article class="header">
@@ -40,8 +41,44 @@
 
     <article class="main-section">
         <h2>Work experience</h2>
-        {% call(item, class) chronology.chronology(work) %}
-            {{ chronology.work_item(item, class) }}
+        {% call(item, class) chron.chronology(work) %}
+            {{ chron.work_item(item, class) }}
         {% endcall %}
+    </article>
+
+    <article class="main-section">
+        <h2>Education</h2>
+        {% call(item, class) chron.chronology(education) %}
+            {{ chron.education_item(item, class) }}
+        {% endcall %}
+    </article>
+
+    {% if other %}
+        <article class="main-section">
+            <h2>Other experiences</h2>
+            {% call(item, class) chron.chronology(other) %}
+                {{ chron.other_item(item, class) }}
+            {% endcall %}
+        </article>
+    {% endif %}
+
+    <article class="main-section">
+        <h2>Skills</h2>
+        <ul class="skills">
+            {% for category in skills %}
+                <li>
+                    <h3>{{ category.name }}</h3>
+                    <div class="skills-list">
+                        {% set max_level = category['items']
+                                           | map(attribute='level') | max %}
+                        {% for item in category['items'] %}
+                            <div class="skill-name">{{ item.name }}</div>
+                            {{ skill_continuous(item.level, max_level,
+                                                'skill-level') }}
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
     </article>
 {% endblock %}
