@@ -79,7 +79,7 @@
     <article class="main-section">
         <h2>Education</h2>
         {% call(item, class) chron.chronology(education, chron_class) %}
-            {{ chron.education_item(item) }}
+            {{ chron.education_item(item, class) }}
         {% endcall %}
     </article>
 
@@ -87,7 +87,7 @@
         <article class="main-section">
             <h2>Other experiences</h2>
             {% call(item, class) chron.chronology(other, chron_class) %}
-                {{ chron.other_item(item) }}
+                {{ chron.other_item(item, class) }}
             {% endcall %}
         </article>
     {% endif %}
