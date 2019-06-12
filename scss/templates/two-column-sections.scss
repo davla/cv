@@ -4,6 +4,8 @@
 ///     Created by Davide on 28/05/19
 ////
 
+@import 'util/unit';
+@import '../components/timeline';
 @import '../functions/getter';
 @import '../include/base';
 @import '../include/lib';
@@ -58,4 +60,34 @@
             max-height: 13ex;
         }
     }
+}
+
+.main-section {
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: top right bottom left
+    );
+
+    h2 {
+        $border-gradient: linear-gradient(to right, $dark-gray, transparent);
+        $border-width: 2px;
+
+        margin-bottom: get-spacing(xlarge) * 1.2;
+        padding-bottom: get-spacing(small);
+        border-image-source: $border-gradient;
+        border-image-slice: strip-unit($border-width);
+        border-image-width: 0 0 $border-width 0;
+        width: 40%;
+    }
+
+    .timeline {
+        columns: 2;
+        column-gap: rem-calc(50px);
+        column-rule: rem-calc(2px) solid $medium-gray;
+    }
+
+    .timeline-item {
+        @include xy-gutters($gutter-type: margin, $gutter-position: bottom);
+    }
+
 }

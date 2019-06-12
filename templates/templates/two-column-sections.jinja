@@ -1,6 +1,7 @@
 {% extends 'layout/simple.jinja' %}
 
 {% from 'macros/lib.jinja' import contact_info %}
+{% import 'macros/timeline.jinja' as timeline %}
 
 {% block content %}
     <article class="header">
@@ -23,5 +24,12 @@
         <div class="picture">
             <img src="{{ header.picture_url }}" alt="picture" />
         </div>
+    </article>
+
+    <article class="main-section">
+        <h2>Work experience</h2>
+        {% call(item) timeline.timeline(work) %}
+            {{ timeline.work_item(item) }}
+        {% endcall %}
     </article>
 {% endblock %}
