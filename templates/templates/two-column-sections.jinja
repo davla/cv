@@ -1,7 +1,7 @@
 {% extends 'layout/simple.jinja' %}
 
 {% from 'macros/lib.jinja' import contact_info %}
-{% import 'macros/timeline.jinja' as timeline %}
+{% import 'macros/chronology.jinja' as chronology %}
 
 {% block content %}
     <article class="header">
@@ -28,8 +28,8 @@
 
     <article class="main-section">
         <h2>Work experience</h2>
-        {% call(item) timeline.timeline(work) %}
-            {{ timeline.work_item(item) }}
+        {% call(item, class) chronology.chronology(work) %}
+            {{ chronology.work_item(item, class) }}
         {% endcall %}
     </article>
 {% endblock %}

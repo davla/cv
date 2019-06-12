@@ -1,0 +1,62 @@
+{% macro chronology_item(item, heading, class='chronology') %}
+    {{ item_heading(item, heading, class) }}
+
+    {% if item.content is string %}
+        <div class="{{ class }}-description">
+            {{ item.content | nl2br }}
+        </div>
+    {% elif item.content is sequence %}
+        <ul class="{{ class }}-bullets">
+            {% for bullet in item.content %}
+                <li>{{ bullet }}</li>
+            {% endfor %}
+        </ul>
+    {% elif item.content is mapping %}
+        <dl class="{{ class }}-items">
+            {% for title, bullet in item.content %}
+                <dt>{{ title }}</dt>
+                <dd>{{ content }}</dd>
+            {% endfor %}
+        </dl>
+    {% endif %}
+{% endmacro %}
+
+{% macro item_heading(item, heading, class='chronology') %}
+    <header>
+        <h3 class="{{ class }}-heading">{{ heading }}</h3>
+        <p class="{{ class }}-period">{{ item.from }} - {{ item.to }}</p>
+        <p class="{{ class }}-location">{{ item.location }}</p>
+    </header>
+{% endmacro %}
+
+{% macro education_item(item, class='chronology') %}
+    {% set heading %}
+        {{ item.degree }} in {{ item.program }}
+        <small>at {{ item.institution.name }}</small>
+    {% endset %}
+    {{ chronology_item(item, heading, class) }}
+{% endmacro %}
+
+{% macro other_item(item, class='chronology') %}
+    {% set heading %}
+        {{ item.role }} <small>at {{ item.organization.name }}</small>
+    {% endset %}
+    {{ chronology_item(item, heading, class) }}
+{% endmacro %}
+
+{% macro work_item(item, class='chronology') %}
+    {% set heading %}
+        {{ item.role }} <small>at {{ item.company.name }}</small>
+    {% endset %}
+    {{ chronology_item(item, heading, class) }}
+{% endmacro %}
+
+{% macro chronology(items, class='chronology') %}
+    <ul class="{{ class }}">
+        {% for item in items %}
+            <li class="{{ class }}-item">
+                {{ caller(item, class) }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

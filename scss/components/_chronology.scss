@@ -1,0 +1,23 @@
+////
+///     Created by Davide on 12/06/19
+////
+
+@import '../functions/getter';
+@import '../include/vendors';
+
+.chronology {
+    @extend .no-bullet;
+}
+
+.chronology-period {
+    margin-top: get-spacing(xsmall);
+    font-size: get-font-size(large);
+}
+
+.chronology-description {
+    margin-top: get-spacing(large);
+
+    p + p {
+        margin-top: get-spacing(medium);
+    }
+}
