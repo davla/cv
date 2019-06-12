@@ -2,10 +2,7 @@
 ///     Created by Davide on 2/19/19
 ////
 
-@import 'util/unit';
-
-@import '../functions/getter';
-@import '../include/lib';
+@import 'chronology';
 @import '../mixins/lib';
 
 @mixin timeline-item($color, $spacing, $dot-size,
@@ -46,37 +43,8 @@
     }
 }
 
-
-.timeline {
-    @extend .no-bullet;
-}
-
-.timeline-period {
-    margin-top: get-spacing(xsmall);
-    font-size: get-font-size(large);
-}
-
-.timeline-description {
-    margin-top: get-spacing(large);
-
-    p + p {
-        margin-top: get-spacing(medium);
-    }
-}
-
-.timeline-info {
-    margin-top: get-spacing(large);
-
-    dt {
-        font-size: get-font-size(large);
-        font-weight: normal;
-    }
-
-    dd {
-        margin-left: get-spacing(large);
-    }
-
-    dd + dt {
-        margin-top: get-spacing(small);
+@each $class in '', '-period', '-description' {
+    .timeline#{$class} {
+        @extend .chronology#{$class};
     }
 }

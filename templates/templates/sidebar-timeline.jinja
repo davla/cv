@@ -1,7 +1,7 @@
 {% extends 'layout/sidebar.jinja' %}
 
 {% from 'macros/skill-level.jinja' import skill_continuous %}
-{% import 'macros/timeline.jinja' as timeline %}
+{% import 'macros/chronology.jinja' as chron %}
 
 {% block sidebar %}
     <article class="header">
@@ -84,25 +84,27 @@
         </article>
     {% endif %}
 
+    {% set chron_class = 'timeline' %}
+
     <article class="main-section">
         <h2>Work experience</h2>
-        {% call(item) timeline.timeline(work) %}
-            {{ timeline.work_item(item) }}
+        {% call(item, class) chron.chronology(work, chron_class) %}
+            {{ chron.work_item(item, class) }}
         {% endcall %}
     </article>
 
     <article class="main-section">
         <h2>Education</h2>
-        {% call(item) timeline.timeline(education) %}
-            {{ timeline.education_item(item) }}
+        {% call(item, class) chron.chronology(education, chron_class) %}
+            {{ chron.education_item(item) }}
         {% endcall %}
     </article>
 
     {% if other %}
         <article class="main-section">
             <h2>Other experiences</h2>
-            {% call(item) timeline.timeline(other) %}
-                {{ timeline.other_item(item) }}
+            {% call(item, class) chron.chronology(other, chron_class) %}
+                {{ chron.other_item(item) }}
             {% endcall %}
         </article>
     {% endif %}
