@@ -9,6 +9,19 @@
 @import '../functions/getter';
 @import '../include/base';
 @import '../include/lib';
+@import '../include/print';
+@import '../mixins/lib';
+
+$columns-gap: rem-calc(50px);
+
+%two-columned {
+    columns: 2;
+    column-gap: $columns-gap;
+
+    > * {
+        @extend %print-group;
+    }
+}
 
 .header {
     @extend .grid-x, .grid-padding-x, .grid-padding-y;
@@ -62,6 +75,37 @@
     }
 }
 
+h2 {
+    $border-gradient: linear-gradient(to right, $dark-gray, transparent);
+    $border-width: 2px;
+
+    margin-bottom: get-spacing(medium);
+    padding-bottom: get-spacing(xsmall);
+    border-bottom: $border-width solid transparent;
+    border-image-source: $border-gradient;
+    border-image-slice: strip-unit($border-width);
+    border-image-width: 0 0 $border-width 0;
+    width: 40%;
+}
+
+.intro {
+    @extend %two-columned;
+
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: top right bottom left
+    );
+
+    .profile {
+        break-inside: avoid;
+    }
+
+    .interests {
+        @extend %two-columned;
+        @include interests-info($black, $white);
+    }
+}
+
 .main-section {
     @include xy-gutters(
         $gutter-type: padding,
@@ -69,21 +113,18 @@
     );
 
     h2 {
-        $border-gradient: linear-gradient(to right, $dark-gray, transparent);
-        $border-width: 2px;
-
-        margin-bottom: get-spacing(xlarge) * 1.2;
+        margin-bottom: get-spacing(large);
         padding-bottom: get-spacing(small);
-        border-image-source: $border-gradient;
-        border-image-slice: strip-unit($border-width);
-        border-image-width: 0 0 $border-width 0;
-        width: 40%;
+        width: 30%;
     }
 
     .chronology {
-        columns: 2;
-        column-gap: rem-calc(50px);
-        column-rule: rem-calc(2px) solid $medium-gray;
+        @extend %two-columned;
+
+        $rule-width: rem-calc(2px);
+
+        column-gap: $columns-gap - $rule-width;
+        column-rule: $rule-width solid $medium-gray;
     }
 
     .chronology-item {

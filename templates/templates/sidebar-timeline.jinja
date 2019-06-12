@@ -1,7 +1,8 @@
 {% extends 'layout/sidebar.jinja' %}
 
-{% from 'macros/skill-level.jinja' import skill_continuous %}
 {% import 'macros/chronology.jinja' as chron %}
+{% from 'macros/lib.jinja' import contact_info, interests_info %}
+{% from 'macros/skill-level.jinja' import skill_continuous %}
 
 {% block sidebar %}
     <article class="header">
@@ -19,30 +20,12 @@
     </article>
 
     <article class="contact">
-        <ul>
-            {% for item in contact %}
-                <li>
-                    <span class="icon-{{ item.icon }}"></span>
-                    {% if item.href %}
-                        <a href="{{ item.href }}">{{ item.text }}</a>
-                    {% else %}
-                        {{ item.text }}
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+        {{ contact_info(contact) }}
     </article>
 
     <article class="interests">
         <h2>Interests:</h2>
-        <ul>
-            {% for item in interests %}
-                <li>
-                    <span class="icon-{{ item.icon }}"></span>
-                    {{ item.name | capitalize }}
-                </li>
-            {% endfor %}
-        </ul>
+        {{ interests_info(interests) }}
     </article>
 
     <article class="languages">

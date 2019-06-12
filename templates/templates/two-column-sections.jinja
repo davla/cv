@@ -1,6 +1,6 @@
 {% extends 'layout/simple.jinja' %}
 
-{% from 'macros/lib.jinja' import contact_info %}
+{% from 'macros/lib.jinja' import contact_info, interests_info %}
 {% import 'macros/chronology.jinja' as chronology %}
 
 {% block content %}
@@ -23,6 +23,18 @@
 
         <div class="picture">
             <img src="{{ header.picture_url }}" alt="picture" />
+        </div>
+    </article>
+
+    <article class="intro">
+        <div>
+            <h2>Profile</h2>
+            <p class="profile">{{ profile }}</p>
+        </div>
+
+        <div>
+            <h2>Interests</h2>
+            {{ interests_info(interests, 'interests') }}
         </div>
     </article>
 

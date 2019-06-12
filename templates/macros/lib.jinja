@@ -1,5 +1,5 @@
-{% macro contact_info(contact) %}
-    <ul>
+{% macro contact_info(contact, class=none) %}
+    <ul {%- if class is not none %} class="{{ class }}" {%- endif %}>
         {% for item in contact %}
             <li>
                 <span class="icon-{{ item.icon }}"></span>
@@ -8,6 +8,17 @@
                 {% else %}
                     {{ item.text }}
                 {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro interests_info(interests, class=none) %}
+    <ul {%- if class is not none %} class="{{ class }}" {%- endif %}>
+        {% for item in interests %}
+            <li>
+                <span class="icon-{{ item.icon }}"></span>
+                {{ item.name | capitalize }}
             </li>
         {% endfor %}
     </ul>

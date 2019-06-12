@@ -5,6 +5,9 @@
 ///     Created by Davide on 2/17/19
 ////
 
+@import '../functions/getter';
+@import 'icons';
+
 ///
 /// Makes an element squared to a certain size
 ///
@@ -13,4 +16,26 @@
 @mixin square($size) {
     height: $size;
     width: $size;
+}
+
+///
+/// Interests info mixin
+///
+@mixin interests-info($color, $background, $icon-options: ('size': large,
+        'spacing-right': medium)) {
+
+    $icon-args: map-merge($icon-options, (
+        'background': $color,
+        'text': $background
+    ));
+
+    @extend .no-bullet;
+
+    li {
+        margin: get-spacing(small) 0;
+    }
+
+    span[class*="icon"] {
+        @include icon-circle-solid($icon-args...);
+    }
 }
