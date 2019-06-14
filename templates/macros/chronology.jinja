@@ -9,7 +9,17 @@
         <dl class="{{ class }}-section">
             {% for title, content in item.content.items() %}
                 <dt>{{ title | capitalize }}</dt>
-                <dd>{{ content }}</dd>
+                <dd>
+                    {%- if content is string -%}
+                        {{ content }}
+                    {%- elif content is sequence -%}
+                        <ul class="inline">
+                            {%- for elem in content -%}
+                                <li>{{ elem | capitalize }}</li>
+                            {%- endfor -%}
+                        </ul>
+                    {%- endif -%}
+                </dd>
             {% endfor %}
         </dl>
     {% elif item.content is sequence %}
