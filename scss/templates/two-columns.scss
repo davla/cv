@@ -1,0 +1,191 @@
+////
+///     This file contains styles for the two-column-sections template
+///
+///     Created by Davide on 28/05/19
+////
+
+@import 'util/unit';
+@import '../components/chronology';
+@import '../components/skill-level';
+@import '../functions/getter';
+@import '../include/base';
+@import '../include/lib';
+@import '../include/print';
+@import '../layout/two-columns';
+@import '../mixins/lib';
+
+.header {
+    @extend .grid-x, .grid-padding-x, .grid-padding-y, %print-group;
+
+    align-items: center;
+    background: $primary-color;
+
+    > * {
+        @extend .cell;
+    }
+
+    .personal {
+        @extend .medium-4;
+
+        > p {
+            margin-bottom: get-spacing(xsmall);
+        }
+
+        .name {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .location {
+            font-style: italic;
+        }
+    }
+
+    .contact {
+        @extend .medium-3;
+
+        ul {
+            @extend %contact-info;
+        }
+    }
+
+    .summary {
+        @extend .medium-3;
+    }
+
+    .picture {
+        @extend .medium-2;
+
+        img {
+            display: block;
+            margin: auto;
+            border-radius: 50%;
+            max-height: 13ex;
+        }
+    }
+}
+
+%main-section {
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: bottom
+    );
+
+    h2 {
+        margin-bottom: get-spacing(large);
+        padding-bottom: get-spacing(small);
+    }
+
+    .chronology-item {
+        @extend %print-group;
+
+        @include xy-gutters($gutter-type: margin, $gutter-position: bottom);
+    }
+
+    .chronology-bullets li {
+        margin: get-spacing(medium) 0;
+    }
+
+    .chronology-section {
+        dt {
+            margin-top: get-spacing(small);
+        }
+
+        dd {
+            margin-bottom: get-spacing(small);
+            padding-left: get-spacing(xlarge) * 2;
+        }
+    }
+}
+
+h2 {
+    $border-gradient: linear-gradient(to right, $dark-gray, transparent);
+    $border-width: 2px;
+
+    margin-bottom: get-spacing(medium);
+    padding-bottom: get-spacing(xsmall);
+    border-bottom: $border-width solid transparent;
+    border-image-source: $border-gradient;
+    border-image-slice: strip-unit($border-width);
+    border-image-width: 0 0 $border-width 0;
+    width: 60%;
+    break-after: avoid-column;
+}
+
+.profile, .interests, .languages, .work, .education, .other, .skills {
+    @extend %main-section;
+}
+
+.profiles, .interests, .languages {
+    @extend %print-group;
+}
+
+.skills-list {
+    @extend .grid-x, .grid-padding-x;
+
+    margin-bottom: get-spacing(medium);
+}
+
+.skill-name {
+    @extend .cell, .xsmall-6, .large-5;
+}
+
+.skill-level {
+    @extend .cell, .xsmall-6, .large-7;
+
+    $bar-height: rem-calc(4px);
+
+    @include skill-bar(
+        $bar-color: $black,
+        $bar-height: $bar-height
+    );
+
+    .skill-bar {
+        border-radius: $bar-height * 1.5;
+    }
+}
+
+.interests ul {
+    @include interests-info($black, $white);
+
+    columns: 2;
+}
+
+.skills-categories {
+    @extend .no-bullet;
+
+    .skill-name {
+        @extend .medium-3;
+    }
+
+    .skill-level {
+        @extend .medium-3;
+    }
+}
+
+.work {
+    @extend %print-group;
+}
+
+@media print {
+    h3 {
+        font-size: rem-calc(22px);
+    }
+
+    %first-in-column {
+        @include xy-gutters(
+            $gutter-type: padding,
+            $gutter-position: top
+        );
+    }
+
+    .education .chronology-item:nth-child(2),
+    .other .chronology-item:nth-child(2) {
+        @extend %first-in-column;
+    }
+
+    .other .chronology-item:nth-child(1) {
+        break-after: column;
+    }
+}

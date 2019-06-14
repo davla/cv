@@ -1,0 +1,31 @@
+////
+///     Created by Davide on 14/06/19
+////
+
+@import '../include/vendors';
+
+$column-gap: rem-calc(50px);
+
+$columns-gap: rem-calc(50px);
+
+@import 'sassdash';
+@function multiply-gutter($multiplier, $gutter, $_, $__) {
+    @return $gutter * $multiplier;
+}
+$large-gutters: _map-values($grid-column-gutters,
+    _partial(multiply-gutter, 1.5));
+
+.main {
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: right left,
+        $gutters: $large-gutters
+    );
+    @include xy-gutters(
+        $gutter-type: padding,
+        $gutter-position: top bottom
+    );
+
+    columns: 2;
+    column-gap: $column-gap;
+}

@@ -1,0 +1,94 @@
+{% extends 'layout/two-columns.jinja' %}
+
+{% from 'macros/lib.jinja' import contact_info, interests_info %}
+{% from 'macros/skill-level.jinja' import skill_continuous %}
+{% import 'macros/chronology.jinja' as chron %}
+
+{% block header %}
+    <div class="personal">
+        <p class="name">
+            {{ header.first_name }} {{ header.last_name }}
+        </p>
+
+        <p class="title">{{ header.title }}</p>
+        <p class="location">{{ header.location }}</p>
+    </div>
+
+    <div class="contact">
+        {{ contact_info(contact) }}
+    </div>
+
+    <p class="summary">{{ header.summary }}</p>
+
+    <div class="picture">
+        <img src="{{ header.picture_url }}" alt="picture" />
+    </div>
+{% endblock %}
+
+{% block main %}
+
+    <article class="profile">
+        <h2>Profile</h2>
+        <p>{{ profile }}</p>
+    </article>
+
+    <article class="interests">
+        <h2>Interests</h2>
+        {{ interests_info(interests) }}
+    </article>
+
+    <article class="languages">
+        <h2>Language skills</h2>
+        <div class="skills-list">
+            {% set max_level = languages | map(attribute='level') | max %}
+            {% for item in languages %}
+                <div class="skill-name">{{ item.name | capitalize }}</div>
+                {{ skill_continuous(item.level, max_level, 'skill-level') }}
+            {% endfor %}
+        </div>
+    </article>
+
+    <article class="skills">
+        <h2>Skills</h2>
+        <ul class="skills-categories">
+            {% for category in skills %}
+                <li>
+                    <h3>{{ category.name }}</h3>
+                    <div class="skills-list">
+                        {% set max_level = category['items']
+                                           | map(attribute='level') | max %}
+                        {% for item in category['items'] %}
+                            <div class="skill-name">{{ item.name }}</div>
+                            {{ skill_continuous(item.level, max_level,
+                                                'skill-level') }}
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <article class="work">
+        <h2>Work experience</h2>
+        {% call(item, class) chron.chronology(work) %}
+            {{ chron.work_item(item, class) }}
+        {% endcall %}
+    </article>
+
+    <article class="education">
+        <h2>Education</h2>
+        {% call(item, class) chron.chronology(education) %}
+            {{ chron.education_item(item, class) }}
+        {% endcall %}
+    </article>
+
+    {% if other %}
+        <article class="other">
+            <h2>Other experiences</h2>
+            {% call(item, class) chron.chronology(other) %}
+                {{ chron.other_item(item, class) }}
+            {% endcall %}
+        </article>
+    {% endif %}
+
+{% endblock %}
