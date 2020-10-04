@@ -213,3 +213,7 @@ typings/
 
 # Application Python modules
 !/lib
+
+# Private files
+info.yaml
+static/photo.*
